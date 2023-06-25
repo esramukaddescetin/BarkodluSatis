@@ -63,6 +63,26 @@ namespace BarkodluSatis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap debit_card {
+            get {
+                object obj = ResourceManager.GetObject("debit-card", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap debit_card__1_ {
+            get {
+                object obj = ResourceManager.GetObject("debit-card (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap floppy_disk__2_ {
             get {
                 object obj = ResourceManager.GetObject("floppy-disk (2)", resourceCulture);
@@ -106,6 +126,16 @@ namespace BarkodluSatis.Properties {
         internal static System.Drawing.Bitmap remove {
             get {
                 object obj = ResourceManager.GetObject("remove", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wallet {
+            get {
+                object obj = ResourceManager.GetObject("wallet", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
