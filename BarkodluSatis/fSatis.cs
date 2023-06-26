@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Superpower;
+
 
 namespace BarkodluSatis
 {
@@ -48,45 +48,36 @@ namespace BarkodluSatis
                         TXTMiktar.Focus();
                         return;
                     }
-
+                    // ÜRÜN BARKOD ÜZERİNDEN LİSTEYE EKLENECEKSE.
                     var urun = db.Urun.FirstOrDefault(a => a.Barkod == barkod);
-
-                    int satirsayisi = GRIDSatisListesi.Rows.Count;
-                    bool eklenmismi = false;
-
-                    if (satirsayisi > 0)
+                    UrunGetirListeye(urun, barkod, double.Parse(TXTMiktar.Text));
+                    
+                }
+                //ÜRÜN KG CİNSİNDEN HESAPLANACAK İSE BARKODUN BAŞINDAKİ SAYI KONTROL EDİLEREK LİSTEYE EKLEME.
+                else
+                {
+                    int onek= int.Parse(barkod.Substring(0, 2));
+                    // BARKODUN 2-7 ARASINDAKİ ÜRÜN KODU DEĞERİ EŞLEŞTİRİLİR.
+                    if(db.Terazi.Any(a=> a.TeraziOnEk == onek))
                     {
-                        for (int i = 0; i < satirsayisi; i++)
+                        string teraziurunno = barkod.Substring(2, 5);
+                        // 7-12 ARASI ÜRÜN KG HESAPLAMA.
+                        if (db.Urun.Any(a => a.Barkod == teraziurunno))
                         {
-                            var currentROw = GRIDSatisListesi.Rows[i];
-                            if (currentROw.Cells["Barkod"].Value.ToString() == barkod)
-                            {
-
-                                miktar += Convert.ToDouble(currentROw.Cells["Miktar"].Value);
-                                double varOlanFiyat = Convert.ToDouble(currentROw.Cells["Fiyat"].Value);
-
-
-                                currentROw.Cells["Miktar"].Value = miktar;
-                                currentROw.Cells["Toplam"].Value = Math.Round(miktar * varOlanFiyat, 2);
-
-                                eklenmismi = true;
-                            }
+                            var urunterazi = db.Urun.FirstOrDefault(a => a.Barkod == teraziurunno);
+                            double miktarkg = double.Parse(barkod.Substring(7, 5) ) / 1000;
+                            UrunGetirListeye(urunterazi, teraziurunno, miktarkg);
+                        }
+                        else
+                        {
+                            Console.Beep(900, 2000);
+                            MessageBox.Show("Kg Ürün Ekleme Sayfası");
                         }
                     }
-
-                    if (!eklenmismi)
+                    else
                     {
-                        GRIDSatisListesi.Rows.Add();
-                        var row = GRIDSatisListesi.Rows[satirsayisi];
-                        row.Cells["Barkod"].Value = barkod;
-                        row.Cells["UrünAdi"].Value = urun.UrunAd;
-                        row.Cells["UrunGrup"].Value = urun.UrunGrup;
-                        row.Cells["Birim"].Value = urun.Birim;
-                        row.Cells["Fiyat"].Value = urun.SatisFiyat;
-                        row.Cells["Miktar"].Value = miktar;
-                        row.Cells["Toplam"].Value = Math.Round(miktar * (double)urun.SatisFiyat, 2);
-                        row.Cells["AlisFiyat"].Value = urun.AlisFiyat;
-                        row.Cells["KdvTutari"].Value = urun.KdvTutari;
+                        Console.Beep(900, 2000);
+                        MessageBox.Show("Normal Ürün Ekleme Sayfası");
                     }
                 }
             }
@@ -96,17 +87,66 @@ namespace BarkodluSatis
 
         }
 
+        private void UrunGetirListeye(Urun urun, string barkod, double miktar)
+        {
+            int satirsayisi = GRIDSatisListesi.Rows.Count;
+            bool eklenmismi = false;
+
+            if (satirsayisi > 0)
+            {
+                for (int i = 0; i < satirsayisi; i++)
+                {
+                    var currentROw = GRIDSatisListesi.Rows[i];
+                    if (currentROw.Cells["Barkod"].Value.ToString() == barkod)
+                    {
+
+                        miktar += Convert.ToDouble(currentROw.Cells["Miktar"].Value);
+                        double varOlanFiyat = Convert.ToDouble(currentROw.Cells["Fiyat"].Value);
+
+
+                        currentROw.Cells["Miktar"].Value = miktar;
+                        currentROw.Cells["Toplam"].Value = Math.Round(miktar * varOlanFiyat, 2);
+
+                        eklenmismi = true;
+                    }
+                }
+            }
+
+            if (!eklenmismi)
+            {
+                GRIDSatisListesi.Rows.Add();
+                var row = GRIDSatisListesi.Rows[satirsayisi];
+                row.Cells["Barkod"].Value = barkod;
+                row.Cells["UrünAdi"].Value = urun.UrunAd;
+                row.Cells["UrunGrup"].Value = urun.UrunGrup;
+                row.Cells["Birim"].Value = urun.Birim;
+                row.Cells["Fiyat"].Value = urun.SatisFiyat;
+                row.Cells["Miktar"].Value = miktar;
+                row.Cells["Toplam"].Value = Math.Round(miktar * (double)urun.SatisFiyat, 2);
+                row.Cells["AlisFiyat"].Value = urun.AlisFiyat;
+                row.Cells["KdvTutari"].Value = urun.KdvTutari;
+            }
+        }
+
         private void GenelToplam()
         {
-            if (GRIDSatisListesi.Rows.Count > 0)
+            double toplam = 0;
+            for (int i = 0; i < GRIDSatisListesi.Rows.Count; i++)
             {
-                double toplam = 0;
-                for (int i = 0; i < GRIDSatisListesi.Rows.Count; i++)
-                {
-                    toplam += Convert.ToDouble(GRIDSatisListesi.Rows[i].Cells["Toplam"].Value);
-                }
-                TXTGenelToplam.Text = toplam.ToString("C2");
-                TXTBarkod.Clear();
+                toplam += Convert.ToDouble(GRIDSatisListesi.Rows[i].Cells["Toplam"].Value);
+            }
+            TXTGenelToplam.Text = toplam.ToString("C2");
+            TXTBarkod.Clear();
+            TXTBarkod.Focus();
+        }
+        
+
+        private void GRIDSatisListesi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex== 9) {
+                GRIDSatisListesi.Rows.Remove(GRIDSatisListesi.CurrentRow);
+                GRIDSatisListesi.ClearSelection();
+                GenelToplam();
                 TXTBarkod.Focus();
             }
         }

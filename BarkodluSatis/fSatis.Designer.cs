@@ -31,11 +31,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fSatis));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fSatis));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -46,9 +46,6 @@
             this.TXTMiktar = new System.Windows.Forms.TextBox();
             this.GRIDSatisListesi = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.BTNNakitKart = new System.Windows.Forms.Button();
-            this.BTNKart = new System.Windows.Forms.Button();
-            this.BTNNakit = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.TXTGenelToplam = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
@@ -117,7 +114,6 @@
             this.button48 = new System.Windows.Forms.Button();
             this.button47 = new System.Windows.Forms.Button();
             this.button46 = new System.Windows.Forms.Button();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Barkod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UrunGrup = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UrünAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -127,7 +123,11 @@
             this.Toplam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KdvTutari = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AlisFiyat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Sil = new System.Windows.Forms.DataGridViewImageColumn();
+            this.BTNNakitKart = new System.Windows.Forms.Button();
+            this.BTNKart = new System.Windows.Forms.Button();
+            this.BTNNakit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -202,6 +202,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(590, 94);
             this.panel1.TabIndex = 0;
+            this.panel1.TabStop = true;
             // 
             // CBSatisIadeIslemi
             // 
@@ -249,6 +250,7 @@
             this.TXTBarkod.Name = "TXTBarkod";
             this.TXTBarkod.Size = new System.Drawing.Size(251, 26);
             this.TXTBarkod.TabIndex = 0;
+            this.TXTBarkod.TabStop = false;
             this.TXTBarkod.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTBarkod_KeyDown);
             // 
             // TXTMiktar
@@ -257,7 +259,7 @@
             this.TXTMiktar.Location = new System.Drawing.Point(6, 62);
             this.TXTMiktar.Name = "TXTMiktar";
             this.TXTMiktar.Size = new System.Drawing.Size(64, 26);
-            this.TXTMiktar.TabIndex = 11;
+            this.TXTMiktar.TabIndex = 1;
             this.TXTMiktar.TabStop = false;
             this.TXTMiktar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -269,7 +271,7 @@
             this.GRIDSatisListesi.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(3);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -307,9 +309,15 @@
             this.GRIDSatisListesi.RowHeadersVisible = false;
             dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(3);
             this.GRIDSatisListesi.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.GRIDSatisListesi.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.GRIDSatisListesi.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(3);
+            this.GRIDSatisListesi.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Silver;
+            this.GRIDSatisListesi.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.GRIDSatisListesi.RowTemplate.Height = 32;
             this.GRIDSatisListesi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GRIDSatisListesi.Size = new System.Drawing.Size(596, 467);
             this.GRIDSatisListesi.TabIndex = 1;
+            this.GRIDSatisListesi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GRIDSatisListesi_CellContentClick);
             // 
             // tableLayoutPanel2
             // 
@@ -329,60 +337,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(590, 111);
             this.tableLayoutPanel2.TabIndex = 2;
-            // 
-            // BTNNakitKart
-            // 
-            this.BTNNakitKart.BackColor = System.Drawing.Color.Olive;
-            this.BTNNakitKart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BTNNakitKart.FlatAppearance.BorderColor = System.Drawing.Color.Olive;
-            this.BTNNakitKart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTNNakitKart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BTNNakitKart.ForeColor = System.Drawing.Color.White;
-            this.BTNNakitKart.Image = global::BarkodluSatis.Properties.Resources.wallet;
-            this.BTNNakitKart.Location = new System.Drawing.Point(237, 1);
-            this.BTNNakitKart.Margin = new System.Windows.Forms.Padding(1);
-            this.BTNNakitKart.Name = "BTNNakitKart";
-            this.BTNNakitKart.Size = new System.Drawing.Size(116, 109);
-            this.BTNNakitKart.TabIndex = 2;
-            this.BTNNakitKart.Text = "NAKİT KART\r\n(F3)";
-            this.BTNNakitKart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BTNNakitKart.UseVisualStyleBackColor = false;
-            // 
-            // BTNKart
-            // 
-            this.BTNKart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            this.BTNKart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BTNKart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            this.BTNKart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTNKart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BTNKart.ForeColor = System.Drawing.Color.White;
-            this.BTNKart.Image = global::BarkodluSatis.Properties.Resources.debit_card__1_;
-            this.BTNKart.Location = new System.Drawing.Point(119, 1);
-            this.BTNKart.Margin = new System.Windows.Forms.Padding(1);
-            this.BTNKart.Name = "BTNKart";
-            this.BTNKart.Size = new System.Drawing.Size(116, 109);
-            this.BTNKart.TabIndex = 1;
-            this.BTNKart.Text = "KART\r\n(F2)";
-            this.BTNKart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BTNKart.UseVisualStyleBackColor = false;
-            // 
-            // BTNNakit
-            // 
-            this.BTNNakit.BackColor = System.Drawing.Color.Tomato;
-            this.BTNNakit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BTNNakit.FlatAppearance.BorderColor = System.Drawing.Color.Tomato;
-            this.BTNNakit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTNNakit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BTNNakit.ForeColor = System.Drawing.Color.White;
-            this.BTNNakit.Image = ((System.Drawing.Image)(resources.GetObject("BTNNakit.Image")));
-            this.BTNNakit.Location = new System.Drawing.Point(1, 1);
-            this.BTNNakit.Margin = new System.Windows.Forms.Padding(1);
-            this.BTNNakit.Name = "BTNNakit";
-            this.BTNNakit.Size = new System.Drawing.Size(116, 109);
-            this.BTNNakit.TabIndex = 0;
-            this.BTNNakit.Text = "NAKİT\r\n(F1)";
-            this.BTNNakit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BTNNakit.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel3
             // 
@@ -1525,13 +1479,6 @@
             this.button46.Text = "Diğer Ürün";
             this.button46.UseVisualStyleBackColor = false;
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Sil";
-            this.dataGridViewImageColumn1.Image = global::BarkodluSatis.Properties.Resources.remove;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Width = 101;
-            // 
             // Barkod
             // 
             this.Barkod.HeaderText = "Barkod";
@@ -1601,12 +1548,73 @@
             this.AlisFiyat.ReadOnly = true;
             this.AlisFiyat.Visible = false;
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Sil";
+            this.dataGridViewImageColumn1.Image = global::BarkodluSatis.Properties.Resources.remove;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 101;
+            // 
             // Sil
             // 
             this.Sil.HeaderText = "Sil";
-            this.Sil.Image = global::BarkodluSatis.Properties.Resources.remove;
+            this.Sil.Image = global::BarkodluSatis.Properties.Resources.close;
             this.Sil.Name = "Sil";
             this.Sil.ReadOnly = true;
+            // 
+            // BTNNakitKart
+            // 
+            this.BTNNakitKart.BackColor = System.Drawing.Color.Olive;
+            this.BTNNakitKart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BTNNakitKart.FlatAppearance.BorderColor = System.Drawing.Color.Olive;
+            this.BTNNakitKart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNNakitKart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BTNNakitKart.ForeColor = System.Drawing.Color.White;
+            this.BTNNakitKart.Image = global::BarkodluSatis.Properties.Resources.wallet;
+            this.BTNNakitKart.Location = new System.Drawing.Point(237, 1);
+            this.BTNNakitKart.Margin = new System.Windows.Forms.Padding(1);
+            this.BTNNakitKart.Name = "BTNNakitKart";
+            this.BTNNakitKart.Size = new System.Drawing.Size(116, 109);
+            this.BTNNakitKart.TabIndex = 2;
+            this.BTNNakitKart.Text = "NAKİT KART\r\n(F3)";
+            this.BTNNakitKart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNNakitKart.UseVisualStyleBackColor = false;
+            // 
+            // BTNKart
+            // 
+            this.BTNKart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            this.BTNKart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BTNKart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            this.BTNKart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNKart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BTNKart.ForeColor = System.Drawing.Color.White;
+            this.BTNKart.Image = global::BarkodluSatis.Properties.Resources.debit_card__1_;
+            this.BTNKart.Location = new System.Drawing.Point(119, 1);
+            this.BTNKart.Margin = new System.Windows.Forms.Padding(1);
+            this.BTNKart.Name = "BTNKart";
+            this.BTNKart.Size = new System.Drawing.Size(116, 109);
+            this.BTNKart.TabIndex = 1;
+            this.BTNKart.Text = "KART\r\n(F2)";
+            this.BTNKart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNKart.UseVisualStyleBackColor = false;
+            // 
+            // BTNNakit
+            // 
+            this.BTNNakit.BackColor = System.Drawing.Color.Tomato;
+            this.BTNNakit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BTNNakit.FlatAppearance.BorderColor = System.Drawing.Color.Tomato;
+            this.BTNNakit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNNakit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BTNNakit.ForeColor = System.Drawing.Color.White;
+            this.BTNNakit.Image = ((System.Drawing.Image)(resources.GetObject("BTNNakit.Image")));
+            this.BTNNakit.Location = new System.Drawing.Point(1, 1);
+            this.BTNNakit.Margin = new System.Windows.Forms.Padding(1);
+            this.BTNNakit.Name = "BTNNakit";
+            this.BTNNakit.Size = new System.Drawing.Size(116, 109);
+            this.BTNNakit.TabIndex = 0;
+            this.BTNNakit.Text = "NAKİT\r\n(F1)";
+            this.BTNNakit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNNakit.UseVisualStyleBackColor = false;
             // 
             // fSatis
             // 
