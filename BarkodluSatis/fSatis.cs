@@ -13,16 +13,44 @@ namespace BarkodluSatis
 {
     public partial class fSatis : Form
     {
+        private void fSatis_Load(object sender, EventArgs e)
+        {
+            HizliButonDoldur();
+        }
+        private void HizliButonDoldur()
+        {
+            var hizliurun = db.HizliUrun.ToList();
+            foreach (var item in hizliurun)
+            {
+                //true= tüm alt kontrolleri aramak için, aksi taktirde = false.
+                Button bH = this.Controls.Find("bH" + item.Id, true).FirstOrDefault() as Button;
+                if (bH !=null) {
+                    double fiyat =Islemler.DoubleYap((item.fiyat).ToString());
+                    bH.Text = item.UrunAd + "\n" + fiyat.ToString("C2");
+                }
+            }
+        }
+        private void HizliButtonClick(object sender , EventArgs e) {
+            //Gelen nessneyi buton olarak aç. b' ye aktar.
+            Button b = (Button)sender;
+            if (b.Text.ToString().StartsWith("-"))
+            {
+                MessageBox.Show("Ürün ekleme sayfasını aç.");
+            }
+            else {
+                //örn name: bH21
+                int butonid = int.Parse(b.Name.ToString().Substring(2, b.Name.Length - 2));
+                var urunbarkod = db.HizliUrun.Where(a => a.Id == butonid).Select(a => a.Barkod).FirstOrDefault();
+                var urun = db.Urun.Where(a => a.Barkod == urunbarkod).FirstOrDefault();
+                UrunGetirListeye(urun, urunbarkod, 1);
+                GenelToplam(); }
+        }
+
         BarkodDbEntities db = new BarkodDbEntities();
 
         public fSatis()
         {
             InitializeComponent();
-        }
-
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void TXTBarkod_KeyDown(object sender, KeyEventArgs e)
@@ -51,21 +79,21 @@ namespace BarkodluSatis
                     // ÜRÜN BARKOD ÜZERİNDEN LİSTEYE EKLENECEKSE.
                     var urun = db.Urun.FirstOrDefault(a => a.Barkod == barkod);
                     UrunGetirListeye(urun, barkod, double.Parse(TXTMiktar.Text));
-                    
+
                 }
                 //ÜRÜN KG CİNSİNDEN HESAPLANACAK İSE BARKODUN BAŞINDAKİ SAYI KONTROL EDİLEREK LİSTEYE EKLEME.
                 else
                 {
-                    int onek= int.Parse(barkod.Substring(0, 2));
+                    int onek = int.Parse(barkod.Substring(0, 2));
                     // BARKODUN 2-7 ARASINDAKİ ÜRÜN KODU DEĞERİ EŞLEŞTİRİLİR.
-                    if(db.Terazi.Any(a=> a.TeraziOnEk == onek))
+                    if (db.Terazi.Any(a => a.TeraziOnEk == onek))
                     {
                         string teraziurunno = barkod.Substring(2, 5);
                         // 7-12 ARASI ÜRÜN KG HESAPLAMA.
                         if (db.Urun.Any(a => a.Barkod == teraziurunno))
                         {
                             var urunterazi = db.Urun.FirstOrDefault(a => a.Barkod == teraziurunno);
-                            double miktarkg = double.Parse(barkod.Substring(7, 5) ) / 1000;
+                            double miktarkg = double.Parse(barkod.Substring(7, 5)) / 1000;
                             UrunGetirListeye(urunterazi, teraziurunno, miktarkg);
                         }
                         else
@@ -139,16 +167,19 @@ namespace BarkodluSatis
             TXTBarkod.Clear();
             TXTBarkod.Focus();
         }
-        
+
 
         private void GRIDSatisListesi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex== 9) {
+            if (e.ColumnIndex == 9)
+            {
                 GRIDSatisListesi.Rows.Remove(GRIDSatisListesi.CurrentRow);
                 GRIDSatisListesi.ClearSelection();
                 GenelToplam();
                 TXTBarkod.Focus();
             }
         }
+
+
     }
 }
