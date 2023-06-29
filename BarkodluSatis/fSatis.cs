@@ -24,26 +24,33 @@ namespace BarkodluSatis
             {
                 //true= tüm alt kontrolleri aramak için, aksi taktirde = false.
                 Button bH = this.Controls.Find("bH" + item.Id, true).FirstOrDefault() as Button;
-                if (bH !=null) {
-                    double fiyat =Islemler.DoubleYap((item.fiyat).ToString());
+                if (bH != null)
+                {
+                    double fiyat = Islemler.DoubleYap((item.fiyat).ToString());
                     bH.Text = item.UrunAd + "\n" + fiyat.ToString("C2");
                 }
             }
         }
-        private void HizliButtonClick(object sender , EventArgs e) {
+        private void HizliButtonClick(object sender, EventArgs e)
+        {
             //Gelen nessneyi buton olarak aç. b' ye aktar.
             Button b = (Button)sender;
+            //örn name: bH21
+            int butonid = int.Parse(b.Name.ToString().Substring(2, b.Name.Length - 2));
             if (b.Text.ToString().StartsWith("-"))
             {
-                MessageBox.Show("Ürün ekleme sayfasını aç.");
+                fHizliButonUrunEkle f = new fHizliButonUrunEkle();
+                f.LBLButonId.Text = butonid.ToString();
+                f.ShowDialog();
             }
-            else {
-                //örn name: bH21
-                int butonid = int.Parse(b.Name.ToString().Substring(2, b.Name.Length - 2));
+            else
+            {
+
                 var urunbarkod = db.HizliUrun.Where(a => a.Id == butonid).Select(a => a.Barkod).FirstOrDefault();
                 var urun = db.Urun.Where(a => a.Barkod == urunbarkod).FirstOrDefault();
                 UrunGetirListeye(urun, urunbarkod, 1);
-                GenelToplam(); }
+                GenelToplam();
+            }
         }
 
         BarkodDbEntities db = new BarkodDbEntities();
