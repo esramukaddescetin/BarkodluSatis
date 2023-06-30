@@ -42,8 +42,24 @@ namespace BarkodluSatis
                 güncellenecek.UrunAd = urunad;
                 güncellenecek.fiyat = fiyat;
                 db.SaveChanges();
-                MessageBox.Show("Buton Tanımlanmıştır.");
+                //Yeni formdan önceki açılmış forma dönme.
+                fSatis f = (fSatis)Application.OpenForms["fSatis"];
+                Button b = f.Controls.Find("bH" + id, true).FirstOrDefault() as Button;
+                b.Text = urunad + "\n" + fiyat.ToString("C2");
             }
+        }
+
+        private void CBTumu_CheckedChanged(object sender, EventArgs e)
+        {
+            if(CBTumu.Checked)
+            {
+                GRIDUrunler.DataSource = db.Urun.ToList();
+            }
+            else
+            {
+                GRIDUrunler.DataSource=null;
+            }
+
         }
     }
 }

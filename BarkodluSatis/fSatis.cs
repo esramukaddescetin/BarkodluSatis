@@ -187,6 +187,34 @@ namespace BarkodluSatis
             }
         }
 
+        private void bh_MouseDown(object sender, MouseEventArgs e) { 
+            if(e.Button == MouseButtons.Right) {
+                Button b = (Button)sender;
+                if (!b.Text.StartsWith("-"))
+                {
+                    int butonid = int.Parse(b.Name.ToString().Substring(2, b.Name.Length-2));
+                    ContextMenuStrip s = new ContextMenuStrip();
+                    ToolStripMenuItem sil= new ToolStripMenuItem();
+                    sil.Text = "Temizle - Buton No: " + butonid.ToString();
+                    sil.Click += Sil_Click;
+                    s.Items.Add( sil );
+                    this.ContextMenuStrip = s;
 
+                }
+            }
+        }
+
+        private void Sil_Click(object sender, EventArgs e)
+        {
+            int butonid = int.Parse(sender.ToString().Substring(20, sender.ToString().Length-20));
+            var guncelle = db.HizliUrun.Find(butonid);
+            guncelle.Barkod = "-";
+            guncelle.UrunAd = "-";
+            guncelle.fiyat = 0;
+            db.SaveChanges();
+            double fiyat = 0;
+            Button b = this.Controls.Find("bH" + butonid, true).FirstOrDefault() as Button;
+            b.Text="-"+"/n"+fiyat.ToString("C2");
+        }
     }
 }

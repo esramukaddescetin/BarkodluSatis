@@ -13,7 +13,7 @@ namespace BarkodluSatis
         {
             double sonuc;
             double.TryParse(deger,NumberStyles.Currency, CultureInfo.CurrentUICulture.NumberFormat, out sonuc);
-            return sonuc;
+            return Math.Round(sonuc, 2);
         }
     }
 }

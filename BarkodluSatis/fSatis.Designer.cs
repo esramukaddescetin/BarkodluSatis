@@ -665,6 +665,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(594, 472);
             this.tableLayoutPanel4.TabIndex = 0;
+            this.tableLayoutPanel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH25
             // 
@@ -682,6 +683,7 @@
             this.bH25.Text = "bHızlı";
             this.bH25.UseVisualStyleBackColor = false;
             this.bH25.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH25.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH24
             // 
@@ -699,6 +701,7 @@
             this.bH24.Text = "bHızlı";
             this.bH24.UseVisualStyleBackColor = false;
             this.bH24.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH24.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH23
             // 
@@ -716,6 +719,7 @@
             this.bH23.Text = "bHızlı";
             this.bH23.UseVisualStyleBackColor = false;
             this.bH23.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH23.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH22
             // 
@@ -733,6 +737,7 @@
             this.bH22.Text = "bHızlı";
             this.bH22.UseVisualStyleBackColor = false;
             this.bH22.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH22.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH21
             // 
@@ -750,6 +755,7 @@
             this.bH21.Text = "bHızlı";
             this.bH21.UseVisualStyleBackColor = false;
             this.bH21.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH21.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH20
             // 
@@ -767,6 +773,7 @@
             this.bH20.Text = "bHızlı";
             this.bH20.UseVisualStyleBackColor = false;
             this.bH20.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH20.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH19
             // 
@@ -784,6 +791,7 @@
             this.bH19.Text = "bHızlı";
             this.bH19.UseVisualStyleBackColor = false;
             this.bH19.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH19.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH18
             // 
@@ -801,6 +809,7 @@
             this.bH18.Text = "bHızlı";
             this.bH18.UseVisualStyleBackColor = false;
             this.bH18.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH18.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH17
             // 
@@ -818,6 +827,7 @@
             this.bH17.Text = "bHızlı";
             this.bH17.UseVisualStyleBackColor = false;
             this.bH17.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH17.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH16
             // 
@@ -835,6 +845,7 @@
             this.bH16.Text = "bHızlı";
             this.bH16.UseVisualStyleBackColor = false;
             this.bH16.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH16.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH15
             // 
@@ -852,6 +863,7 @@
             this.bH15.Text = "bHızlı";
             this.bH15.UseVisualStyleBackColor = false;
             this.bH15.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH15.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH14
             // 
@@ -869,6 +881,7 @@
             this.bH14.Text = "bHızlı";
             this.bH14.UseVisualStyleBackColor = false;
             this.bH14.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH14.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH13
             // 
@@ -886,6 +899,7 @@
             this.bH13.Text = "bHızlı";
             this.bH13.UseVisualStyleBackColor = false;
             this.bH13.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH12
             // 
@@ -903,6 +917,7 @@
             this.bH12.Text = "bHızlı";
             this.bH12.UseVisualStyleBackColor = false;
             this.bH12.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH11
             // 
@@ -920,6 +935,7 @@
             this.bH11.Text = "bHızlı";
             this.bH11.UseVisualStyleBackColor = false;
             this.bH11.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH10
             // 
@@ -937,6 +953,7 @@
             this.bH10.Text = "bHızlı";
             this.bH10.UseVisualStyleBackColor = false;
             this.bH10.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH9
             // 
@@ -954,6 +971,7 @@
             this.bH9.Text = "bHızlı";
             this.bH9.UseVisualStyleBackColor = false;
             this.bH9.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH8
             // 
@@ -971,6 +989,7 @@
             this.bH8.Text = "bHızlı";
             this.bH8.UseVisualStyleBackColor = false;
             this.bH8.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH7
             // 
@@ -988,6 +1007,7 @@
             this.bH7.Text = "bHızlı";
             this.bH7.UseVisualStyleBackColor = false;
             this.bH7.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH6
             // 
@@ -1005,6 +1025,7 @@
             this.bH6.Text = "bHızlı";
             this.bH6.UseVisualStyleBackColor = false;
             this.bH6.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH5
             // 
@@ -1022,6 +1043,7 @@
             this.bH5.Text = "bHızlı";
             this.bH5.UseVisualStyleBackColor = false;
             this.bH5.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH4
             // 
@@ -1039,6 +1061,7 @@
             this.bH4.Text = "bHızlı";
             this.bH4.UseVisualStyleBackColor = false;
             this.bH4.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH3
             // 
@@ -1056,6 +1079,7 @@
             this.bH3.Text = "bHızlı";
             this.bH3.UseVisualStyleBackColor = false;
             this.bH3.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH2
             // 
@@ -1073,6 +1097,7 @@
             this.bH2.Text = "bHızlı";
             this.bH2.UseVisualStyleBackColor = false;
             this.bH2.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // bH1
             // 
@@ -1090,6 +1115,7 @@
             this.bH1.Text = "bHızlı";
             this.bH1.UseVisualStyleBackColor = false;
             this.bH1.Click += new System.EventHandler(this.HizliButtonClick);
+            this.bH1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bh_MouseDown);
             // 
             // tableLayoutPanel5
             // 

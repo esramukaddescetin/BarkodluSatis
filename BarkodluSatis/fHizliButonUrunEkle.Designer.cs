@@ -32,12 +32,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.GRIDUrunler = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.LBLButonId = new System.Windows.Forms.Label();
+            this.CBTumu = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.TXTUrunAra = new System.Windows.Forms.TextBox();
-            this.CBTumu = new System.Windows.Forms.CheckBox();
-            this.LBLButonId = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.GRIDUrunler = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -67,6 +67,62 @@
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
             this.splitContainer1.SplitterDistance = 128;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label2.Location = new System.Drawing.Point(12, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 20);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Buton Numarası:";
+            // 
+            // LBLButonId
+            // 
+            this.LBLButonId.AutoSize = true;
+            this.LBLButonId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LBLButonId.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.LBLButonId.Location = new System.Drawing.Point(145, 26);
+            this.LBLButonId.Name = "LBLButonId";
+            this.LBLButonId.Size = new System.Drawing.Size(76, 20);
+            this.LBLButonId.TabIndex = 7;
+            this.LBLButonId.Text = "Buton No";
+            // 
+            // CBTumu
+            // 
+            this.CBTumu.AutoSize = true;
+            this.CBTumu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CBTumu.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.CBTumu.Location = new System.Drawing.Point(294, 88);
+            this.CBTumu.Name = "CBTumu";
+            this.CBTumu.Size = new System.Drawing.Size(139, 24);
+            this.CBTumu.TabIndex = 6;
+            this.CBTumu.Text = "Tümünü Göster";
+            this.CBTumu.UseVisualStyleBackColor = true;
+            this.CBTumu.CheckedChanged += new System.EventHandler(this.CBTumu_CheckedChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label6.Location = new System.Drawing.Point(12, 56);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 20);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Ürün Ara";
+            // 
+            // TXTUrunAra
+            // 
+            this.TXTUrunAra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TXTUrunAra.Location = new System.Drawing.Point(16, 88);
+            this.TXTUrunAra.Name = "TXTUrunAra";
+            this.TXTUrunAra.Size = new System.Drawing.Size(251, 26);
+            this.TXTUrunAra.TabIndex = 4;
+            this.TXTUrunAra.TabStop = false;
+            this.TXTUrunAra.TextChanged += new System.EventHandler(this.TXTUrunAra_TextChanged);
             // 
             // GRIDUrunler
             // 
@@ -112,59 +168,6 @@
             this.GRIDUrunler.Size = new System.Drawing.Size(800, 318);
             this.GRIDUrunler.TabIndex = 2;
             this.GRIDUrunler.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GRIDUrunler_CellContentDoubleClick);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label6.Location = new System.Drawing.Point(12, 56);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 20);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Ürün Ara";
-            // 
-            // TXTUrunAra
-            // 
-            this.TXTUrunAra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TXTUrunAra.Location = new System.Drawing.Point(16, 88);
-            this.TXTUrunAra.Name = "TXTUrunAra";
-            this.TXTUrunAra.Size = new System.Drawing.Size(251, 26);
-            this.TXTUrunAra.TabIndex = 4;
-            this.TXTUrunAra.TabStop = false;
-            this.TXTUrunAra.TextChanged += new System.EventHandler(this.TXTUrunAra_TextChanged);
-            // 
-            // CBTumu
-            // 
-            this.CBTumu.AutoSize = true;
-            this.CBTumu.Location = new System.Drawing.Point(288, 96);
-            this.CBTumu.Name = "CBTumu";
-            this.CBTumu.Size = new System.Drawing.Size(99, 17);
-            this.CBTumu.TabIndex = 6;
-            this.CBTumu.Text = "Tümünü Göster";
-            this.CBTumu.UseVisualStyleBackColor = true;
-            // 
-            // LBLButonId
-            // 
-            this.LBLButonId.AutoSize = true;
-            this.LBLButonId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LBLButonId.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.LBLButonId.Location = new System.Drawing.Point(145, 26);
-            this.LBLButonId.Name = "LBLButonId";
-            this.LBLButonId.Size = new System.Drawing.Size(76, 20);
-            this.LBLButonId.TabIndex = 7;
-            this.LBLButonId.Text = "Buton No";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label2.Location = new System.Drawing.Point(12, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 20);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Buton Numarası:";
             // 
             // fHizliButonUrunEkle
             // 
