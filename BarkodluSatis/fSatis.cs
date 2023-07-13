@@ -16,6 +16,12 @@ namespace BarkodluSatis
         private void fSatis_Load(object sender, EventArgs e)
         {
             HizliButonDoldur();
+            b5.Text=5.ToString("C2");
+            b10.Text = 10.ToString("C2");
+            b20.Text = 20.ToString("C2");
+            b50.Text = 50.ToString("C2");
+            b100.Text = 100.ToString("C2");
+            b200.Text = 200.ToString("C2");
         }
         private void HizliButonDoldur()
         {
@@ -48,7 +54,7 @@ namespace BarkodluSatis
 
                 var urunbarkod = db.HizliUrun.Where(a => a.Id == butonid).Select(a => a.Barkod).FirstOrDefault();
                 var urun = db.Urun.Where(a => a.Barkod == urunbarkod).FirstOrDefault();
-                UrunGetirListeye(urun, urunbarkod, 1);
+                UrunGetirListeye(urun, urunbarkod, double.Parse(TXTMiktar.Text));
                 GenelToplam();
             }
         }
@@ -215,6 +221,61 @@ namespace BarkodluSatis
             double fiyat = 0;
             Button b = this.Controls.Find("bH" + butonid, true).FirstOrDefault() as Button;
             b.Text="-"+"/n"+fiyat.ToString("C2");
+        }
+
+        //Numaratör Butonları İle Girişi
+        private void bNx_Click(object sender, EventArgs e)
+        {
+            Button b= (Button)sender;
+            if (b.Text == ",")
+            {
+                int virgul = TXTNumarator.Text.Count(x=>x==',');
+                if (virgul < 1)
+                {
+                    TXTNumarator.Text += b.Text;
+                }
+            }
+            else if(b.Text=="<"){
+                if (TXTNumarator.Text.Length > 0)
+                {
+                    TXTNumarator.Text= TXTNumarator.Text.Substring(0,TXTNumarator.Text.Length-1);
+                }
+            }
+            else
+            {
+                TXTNumarator.Text += b.Text;
+            }
+        }
+
+        private void bAdet_Click(object sender, EventArgs e)
+        {
+            if (TXTNumarator.Text != "")
+            {
+                TXTMiktar.Text = TXTNumarator.Text;
+                TXTNumarator.Clear();
+                TXTBarkod.Clear();
+                TXTBarkod.Focus();
+            }
+        }
+
+        private void bOdenen_Click(object sender, EventArgs e)
+        {
+            if (TXTNumarator.Text != "")
+            {
+                double sonuc = Islemler.DoubleYap(TXTNumarator.Text) - Islemler.DoubleYap(TXTGenelToplam.Text);
+                TXTParaUstu.Text = sonuc.ToString("C2");
+            }
+        }
+
+        private void bBarkod_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ParaUstuHesapla_Click(object sender, EventArgs e) {
+            Button b = (Button)sender;
+            double sonuc = Islemler.DoubleYap(b.Text) - Islemler.DoubleYap(TXTGenelToplam.Text);
+            TXTParaUstu.Text = sonuc.ToString("C2");
         }
     }
 }
