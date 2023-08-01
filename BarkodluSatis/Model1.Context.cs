@@ -28,5 +28,8 @@ namespace BarkodluSatis
         public virtual DbSet<Urun> Urun { get; set; }
         public virtual DbSet<Terazi> Terazi { get; set; }
         public virtual DbSet<HizliUrun> HizliUrun { get; set; }
+        public virtual DbSet<Islem> Islem { get; set; }
+        public virtual DbSet<IslemOzet> IslemOzet { get; set; }
+        public virtual DbSet<Satis> Satis { get; set; }
     }
 }

@@ -329,5 +329,10 @@ namespace BarkodluSatis
             GRIDSatisListesi.Rows.Clear();
             TXTBarkod.Focus();
         }
+
+        private void SatisYap(string odemesekli)
+        {
+
+        }
     }
 }
