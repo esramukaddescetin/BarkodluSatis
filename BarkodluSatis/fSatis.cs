@@ -332,7 +332,92 @@ namespace BarkodluSatis
 
         private void SatisYap(string odemesekli)
         {
+            int satirsayisi = GRIDSatisListesi.Rows.Count;
+            bool satisiade= CBSatisIadeIslemi.Checked;
+            double alisfiyattoplam = 0;
+            if (satirsayisi > 0)
+            {
+                int? islemno = db.Islem.First().IslemNo;
+                Satis satis = new Satis();
+                for (int i = 0; i < satirsayisi; i++)
+                {
+                    satis.IslemNo = islemno;
+                    satis.UrunAd = GRIDSatisListesi.Rows[i].Cells["UrunAdi"].Value.ToString();
+                    satis.UrunGrup= GRIDSatisListesi.Rows[i].Cells["UrunGrup"].Value.ToString();
+                    satis.Barkod= GRIDSatisListesi.Rows[i].Cells["Barkod"].Value.ToString();
+                    satis.Birim= GRIDSatisListesi.Rows[i].Cells["Birim"].Value.ToString();
+                    satis.AlisFiyat= Islemler.DoubleYap(GRIDSatisListesi.Rows[i].Cells["AlisFiyati"].Value.ToString());
+                    satis.SatisFiyat= Islemler.DoubleYap(GRIDSatisListesi.Rows[i].Cells["Fiyat"].Value.ToString());
+                    satis.Miktar= Islemler.DoubleYap(GRIDSatisListesi.Rows[i].Cells["Miktar"].Value.ToString());
+                    satis.Toplam= Islemler.DoubleYap(GRIDSatisListesi.Rows[i].Cells["Toplam"].Value.ToString());
+                    satis.KdvTutari= Islemler.DoubleYap(GRIDSatisListesi.Rows[i].Cells["KdvTutari"].Value.ToString())* Islemler.DoubleYap(GRIDSatisListesi.Rows[i].Cells["Miktar"].Value.ToString());
+                    satis.OdemeSekli = odemesekli;
+                    satis.Iade = satisiade;
+                    satis.Tarih=DateTime.Now;
+                    satis.Kullanici = LBLKullanici.Text;
+                    db.Satis.Add(satis);
+                    db.SaveChanges();
+                    if (!satisiade)
+                    {
+                        Islemler.StokAzalt(GRIDSatisListesi.Rows[i].Cells["Barkod"].Value.ToString(), Islemler.DoubleYap(GRIDSatisListesi.Rows[i].Cells["Miktar"].Value.ToString()));
+                    }
+                    else
+                    {
+                        Islemler.StokArttir(GRIDSatisListesi.Rows[i].Cells["Barkod"].Value.ToString(), Islemler.DoubleYap(GRIDSatisListesi.Rows[i].Cells["Miktar"].Value.ToString()));
+                    }
+                    alisfiyattoplam += Islemler.DoubleYap(GRIDSatisListesi.Rows[i].Cells["AlisFiyati"].Value.ToString());
+                }
+                IslemOzet io= new IslemOzet();
+                io.IslemNo = islemno;
+                io.Iade = satisiade;
+                io.AlisFiyatToplam= alisfiyattoplam;
+                io.Gelir = false;
+                io.Gider= false;
+                if (!satisiade)
+                {
+                    io.Aciklama = odemesekli + " Satış";
+                }
+                else
+                {
+                    io.Aciklama = "İade İşlemi (" + odemesekli + ")";
+                }
+                io.OdemeSekli= odemesekli;
+                io.Kullanici = LBLKullanici.Text;
+                io.Tarih = DateTime.Now;
+                switch(odemesekli)
+                {
+                    case "Nakit":
+                        io.Nakit = Islemler.DoubleYap(TXTGenelToplam.Text);
+                        io.Kart = 0;
+                        break;
+                    case "Kart":
+                        io.Nakit = 0;
+                        io.Kart = Islemler.DoubleYap(TXTGenelToplam.Text);
+                        break;
+                    case "Kart-Nakit":
+                        io.Nakit = Islemler.DoubleYap(LBLNakit.Text);
+                        io.Kart = Islemler.DoubleYap(LBLKart.Text);
+                        break;
+                }
+                db.IslemOzet.Add(io);
+                db.SaveChanges();
 
+                var islemnoarttir = db.Islem.First();
+                islemnoarttir.IslemNo += 1;
+                db.SaveChanges();
+                MessageBox.Show("Yazdırma İşlemi Yap!");
+
+            }
+        }
+
+        private void BTNNakit_Click(object sender, EventArgs e)
+        {
+            SatisYap("Nakit");
+        }
+
+        private void BTNKart_Click(object sender, EventArgs e)
+        {
+            SatisYap("Kart");
         }
     }
 }
