@@ -61,5 +61,10 @@ namespace BarkodluSatis
             }
 
         }
+
+        private void fHizliButonUrunEkle_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

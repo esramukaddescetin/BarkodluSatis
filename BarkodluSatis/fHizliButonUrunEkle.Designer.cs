@@ -178,6 +178,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "fHizliButonUrunEkle";
             this.Text = "Hızlı Buton Ürün Ekleme";
+            this.Load += new System.EventHandler(this.fHizliButonUrunEkle_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

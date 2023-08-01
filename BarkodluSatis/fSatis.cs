@@ -158,7 +158,7 @@ namespace BarkodluSatis
                 GRIDSatisListesi.Rows.Add();
                 var row = GRIDSatisListesi.Rows[satirsayisi];
                 row.Cells["Barkod"].Value = barkod;
-                row.Cells["UrünAdi"].Value = urun.UrunAd;
+                row.Cells["UrunAdi"].Value = urun.UrunAd;
                 row.Cells["UrunGrup"].Value = urun.UrunGrup;
                 row.Cells["Birim"].Value = urun.Birim;
                 row.Cells["Fiyat"].Value = urun.SatisFiyat;
@@ -177,6 +177,7 @@ namespace BarkodluSatis
                 toplam += Convert.ToDouble(GRIDSatisListesi.Rows[i].Cells["Toplam"].Value);
             }
             TXTGenelToplam.Text = toplam.ToString("C2");
+            TXTMiktar.Text = "1";
             TXTBarkod.Clear();
             TXTBarkod.Focus();
         }
@@ -276,6 +277,57 @@ namespace BarkodluSatis
             Button b = (Button)sender;
             double sonuc = Islemler.DoubleYap(b.Text) - Islemler.DoubleYap(TXTGenelToplam.Text);
             TXTParaUstu.Text = sonuc.ToString("C2");
+        }
+
+        private void bDigerUrun_Click(object sender, EventArgs e)
+        {
+            if (TXTNumarator.Text != "")
+            {
+                int satirsayisi = GRIDSatisListesi.Rows.Count;
+                GRIDSatisListesi.Rows.Add();
+                GRIDSatisListesi.Rows[satirsayisi].Cells["Barkod"].Value = "1111111111116";
+                GRIDSatisListesi.Rows[satirsayisi].Cells["UrunAdi"].Value = "Barkodsuz Ürün";
+                GRIDSatisListesi.Rows[satirsayisi].Cells["UrunGrup"].Value = "Barkodsuz Ürün";
+                GRIDSatisListesi.Rows[satirsayisi].Cells["Birim"].Value = "Adet";
+                GRIDSatisListesi.Rows[satirsayisi].Cells["Miktar"].Value = 1;
+                GRIDSatisListesi.Rows[satirsayisi].Cells["Fiyat"].Value = double.Parse(TXTNumarator.Text);
+                GRIDSatisListesi.Rows[satirsayisi].Cells["KdvTutari"].Value = 0;
+                GRIDSatisListesi.Rows[satirsayisi].Cells["Toplam"].Value = double.Parse(TXTNumarator.Text);
+                GenelToplam();
+                TXTNumarator.Text = "";
+                TXTBarkod.Focus();
+            }
+        }
+
+        private void BTNIade_Click(object sender, EventArgs e)
+        {
+            if(CBSatisIadeIslemi.Checked)// seçiliyse gir   
+            {
+                CBSatisIadeIslemi.Checked = false;
+                CBSatisIadeIslemi.Text = "Satış Yapılıyor";
+            }
+            else
+            {
+                CBSatisIadeIslemi.Checked = true;
+                CBSatisIadeIslemi.Text = "İade İşlemi";
+            }
+        }
+
+        private void BTNTemizle_Click(object sender, EventArgs e)
+        {
+            Temizle();
+        }
+        private void Temizle()
+        {
+            TXTMiktar.Text = "1";
+            TXTBarkod.Clear();
+            TXTOdenen.Clear();
+            TXTParaUstu.Clear();
+            TXTGenelToplam.Text=0.ToString("C2");
+            CBSatisIadeIslemi.Checked=false;
+            TXTNumarator.Clear();
+            GRIDSatisListesi.Rows.Clear();
+            TXTBarkod.Focus();
         }
     }
 }
