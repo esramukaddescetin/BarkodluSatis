@@ -330,7 +330,7 @@ namespace BarkodluSatis
             TXTBarkod.Focus();
         }
 
-        private void SatisYap(string odemesekli)
+        public void SatisYap(string odemesekli)
         {
             int satirsayisi = GRIDSatisListesi.Rows.Count;
             bool satisiade= CBSatisIadeIslemi.Checked;
@@ -346,7 +346,7 @@ namespace BarkodluSatis
                     satis.UrunGrup= GRIDSatisListesi.Rows[i].Cells["UrunGrup"].Value.ToString();
                     satis.Barkod= GRIDSatisListesi.Rows[i].Cells["Barkod"].Value.ToString();
                     satis.Birim= GRIDSatisListesi.Rows[i].Cells["Birim"].Value.ToString();
-                    satis.AlisFiyat= Islemler.DoubleYap(GRIDSatisListesi.Rows[i].Cells["AlisFiyati"].Value.ToString());
+                    satis.AlisFiyat= Islemler.DoubleYap(GRIDSatisListesi.Rows[i].Cells["AlisFiyat"].Value.ToString());
                     satis.SatisFiyat= Islemler.DoubleYap(GRIDSatisListesi.Rows[i].Cells["Fiyat"].Value.ToString());
                     satis.Miktar= Islemler.DoubleYap(GRIDSatisListesi.Rows[i].Cells["Miktar"].Value.ToString());
                     satis.Toplam= Islemler.DoubleYap(GRIDSatisListesi.Rows[i].Cells["Toplam"].Value.ToString());
@@ -358,14 +358,11 @@ namespace BarkodluSatis
                     db.Satis.Add(satis);
                     db.SaveChanges();
                     if (!satisiade)
-                    {
                         Islemler.StokAzalt(GRIDSatisListesi.Rows[i].Cells["Barkod"].Value.ToString(), Islemler.DoubleYap(GRIDSatisListesi.Rows[i].Cells["Miktar"].Value.ToString()));
-                    }
                     else
-                    {
                         Islemler.StokArttir(GRIDSatisListesi.Rows[i].Cells["Barkod"].Value.ToString(), Islemler.DoubleYap(GRIDSatisListesi.Rows[i].Cells["Miktar"].Value.ToString()));
-                    }
-                    alisfiyattoplam += Islemler.DoubleYap(GRIDSatisListesi.Rows[i].Cells["AlisFiyati"].Value.ToString());
+                    
+                alisfiyattoplam += Islemler.DoubleYap(GRIDSatisListesi.Rows[i].Cells["AlisFiyat"].Value.ToString());
                 }
                 IslemOzet io= new IslemOzet();
                 io.IslemNo = islemno;
@@ -406,6 +403,7 @@ namespace BarkodluSatis
                 islemnoarttir.IslemNo += 1;
                 db.SaveChanges();
                 MessageBox.Show("Yazdırma İşlemi Yap!");
+                Temizle();
 
             }
         }
@@ -418,6 +416,40 @@ namespace BarkodluSatis
         private void BTNKart_Click(object sender, EventArgs e)
         {
             SatisYap("Kart");
+        }
+
+        private void BTNNakitKart_Click(object sender, EventArgs e)
+        {
+            fNakitKart f = new fNakitKart();
+            f.ShowDialog();
+            
+        }
+
+        private void TXTBarkod_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //TextBox'ın klavyeden girilen sadece rakam ve geri tuşunu algılaması için.
+            if (char.IsDigit(e.KeyChar) == false && e.KeyChar != (char)08)
+                e.Handled = true;
+        }
+
+        private void TXTMiktar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) == false && e.KeyChar != (char)08)
+                e.Handled = true;
+        }
+
+        private void fSatis_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+                SatisYap("Nakit");
+            if (e.KeyCode == Keys.F2)
+                SatisYap("Kart");
+            if (e.KeyCode == Keys.F3)
+            {
+                fNakitKart f = new fNakitKart();
+                f.ShowDialog();
+            }
+            
         }
     }
 }
