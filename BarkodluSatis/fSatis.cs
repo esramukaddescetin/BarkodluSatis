@@ -265,17 +265,34 @@ namespace BarkodluSatis
             {
                 double sonuc = Islemler.DoubleYap(TXTNumarator.Text) - Islemler.DoubleYap(TXTGenelToplam.Text);
                 TXTParaUstu.Text = sonuc.ToString("C2");
+                TXTOdenen.Text = Islemler.DoubleYap(TXTNumarator.Text).ToString("C2");
+                TXTNumarator.Clear();
+                TXTBarkod.Focus();
             }
         }
 
         private void bBarkod_Click(object sender, EventArgs e)
         {
-
+            if (TXTNumarator.Text != "")
+            {
+                if (db.Urun.Any(a => a.Barkod == TXTNumarator.Text))
+                {
+                    var urun = db.Urun.Where(a => a.Barkod == TXTNumarator.Text).FirstOrDefault();
+                    UrunGetirListeye(urun, TXTNumarator.Text, double.Parse(TXTMiktar.Text));
+                    TXTNumarator.Clear();
+                    TXTBarkod.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Ürün Ekleme Sayfasını Aç!");
+                }
+            }
         }
 
         private void ParaUstuHesapla_Click(object sender, EventArgs e) {
             Button b = (Button)sender;
             double sonuc = Islemler.DoubleYap(b.Text) - Islemler.DoubleYap(TXTGenelToplam.Text);
+            TXTOdenen.Text = Islemler.DoubleYap(b.Text).ToString("C2");
             TXTParaUstu.Text = sonuc.ToString("C2");
         }
 
@@ -290,6 +307,7 @@ namespace BarkodluSatis
                 GRIDSatisListesi.Rows[satirsayisi].Cells["UrunGrup"].Value = "Barkodsuz Ürün";
                 GRIDSatisListesi.Rows[satirsayisi].Cells["Birim"].Value = "Adet";
                 GRIDSatisListesi.Rows[satirsayisi].Cells["Miktar"].Value = 1;
+                GRIDSatisListesi.Rows[satirsayisi].Cells["AlisFiyat"].Value= 0;
                 GRIDSatisListesi.Rows[satirsayisi].Cells["Fiyat"].Value = double.Parse(TXTNumarator.Text);
                 GRIDSatisListesi.Rows[satirsayisi].Cells["KdvTutari"].Value = 0;
                 GRIDSatisListesi.Rows[satirsayisi].Cells["Toplam"].Value = double.Parse(TXTNumarator.Text);
@@ -450,6 +468,57 @@ namespace BarkodluSatis
                 f.ShowDialog();
             }
             
+        }
+
+        private void BTNIslemBeklet_Click(object sender, EventArgs e)
+        {
+            if(BTNIslemBeklet.Text== "İşlem Beklet")
+            {
+                Bekle();
+                BTNIslemBeklet.BackColor = System.Drawing.Color.OrangeRed;
+                BTNIslemBeklet.Text = "İşlem Bekliyor";
+                GRIDSatisListesi.Rows.Clear();
+            }
+            else
+            {
+                BeklemedenCik();
+                BTNIslemBeklet.BackColor = System.Drawing.Color.DimGray;
+                BTNIslemBeklet.Text = "İşlem Beklet";
+                GRIDBekle.Rows.Clear();
+            }
+        }
+        private void Bekle()
+        {
+            int satir = GRIDSatisListesi.Rows.Count;
+            int sutun = GRIDSatisListesi.ColumnCount;
+            if(satir> 0)
+            {
+                for (int i = 0; i < satir; i++)
+                {
+                    GRIDBekle.Rows.Add();
+                    for (int j = 0; j < sutun-1; j++)
+                    {
+                        GRIDBekle.Rows[i].Cells[j].Value = GRIDSatisListesi.Rows[i].Cells[j].Value;
+                    }
+                }
+            }
+        }
+
+        private void BeklemedenCik()
+        {
+            int satir = GRIDBekle.Rows.Count;
+            int sutun = GRIDBekle.ColumnCount;
+            if (satir > 0)
+            {
+                for (int i = 0; i < satir; i++)
+                {
+                    GRIDSatisListesi.Rows.Add();
+                    for (int j = 0; j < sutun - 1; j++)
+                    {
+                        GRIDSatisListesi.Rows[i].Cells[j].Value = GRIDBekle.Rows[i].Cells[j].Value;
+                    }
+                }
+            }
         }
     }
 }
