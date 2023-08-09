@@ -227,7 +227,7 @@ namespace BarkodluSatis
         //Numaratör Butonları İle Girişi
         private void bNx_Click(object sender, EventArgs e)
         {
-            Button b= (Button)sender;
+                Button b= (Button)sender;
             if (b.Text == ",")
             {
                 int virgul = TXTNumarator.Text.Count(x=>x==',');
