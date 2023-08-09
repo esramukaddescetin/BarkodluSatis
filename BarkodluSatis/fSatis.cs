@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -118,7 +119,9 @@ namespace BarkodluSatis
                     else
                     {
                         Console.Beep(900, 2000);
-                        MessageBox.Show("Normal Ürün Ekleme Sayfası");
+                        fUrunGiris f = new fUrunGiris();
+                        f.TXTBarkod.Text = barkod;
+                        f.ShowDialog();
                     }
                 }
             }
