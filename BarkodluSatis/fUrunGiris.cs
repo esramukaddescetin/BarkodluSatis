@@ -125,6 +125,19 @@ namespace BarkodluSatis
         private void fUrunGiris_Load(object sender, EventArgs e)
         {
             TXTUrunSayisi.Text = db.Urun.Count().ToString();
+            GrupDoldur();
+        }
+        public void GrupDoldur()
+        {
+            CBUrunGrubu.DisplayMember = "UrunGrupAd";
+            CBUrunGrubu.ValueMember = "Id";
+            CBUrunGrubu.DataSource = db.UrunGrup.OrderBy(a => a.UrunGrupAd).ToList();
+        }
+
+        private void BTNUrunGrubuEkle_Click(object sender, EventArgs e)
+        {
+            fUrunGrubuEkle f= new fUrunGrubuEkle();
+            f.ShowDialog();
         }
     }
 }
