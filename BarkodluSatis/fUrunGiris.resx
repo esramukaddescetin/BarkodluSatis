@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="bStandart5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BTNRaporAl.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
         MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnCAkNGzl0BlUQAAACNUlEQVRYR+2WTUsVURjHr4kLITCD
@@ -134,7 +134,7 @@
         gqPTOQDIjY3CFKES1gAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="bStandart4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BTNKaydet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
         MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnCAkNFC5wTcwYAAABfUlEQVRIS+2Vu0oDQRiFgwiCElEU
@@ -147,7 +147,7 @@
         v2LtGCL7ZkkQAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="bStandart3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BTNIptal.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
         MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnCAkNDygwGKK3AAACU0lEQVRIS62WS1IUQRRFW0QHAurQ
@@ -163,7 +163,7 @@
         /xu80j1ttrPMWYN2zccRg/qwBK/Aj8prRWzrGRvx30Sv9wfSt8r/eSMl3QAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="bStandart2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BTNBarkodOlustur.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
         MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnCAkNBwm0qDjhAAABj0lEQVRYR+3WTSuEURjG8RmDKdl4
@@ -176,15 +176,15 @@
         hE5z2H3amNaIvpffohD/OWKxD3qPmHoNkx+7AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="bStandart1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BTNUrunGrubuEkle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
-        AAAA/klEQVRIS+2WzQnCQBCFQ9pKPwoSCxAEYwHRY7CHpIJgKhDsIagdeFPi+2C8hDU/rIKHPPggszt5
-        Q9ydwWCImqYJxVrU4ioS1mzbXzJbiodIjaeY2ba/ZFaJ3ELiQpQW+ktmZ5FZSJyxZqG/pgK9+u8CSqSJ
-        5qIUpw/cRbsAa65c4FrHIiR5K2iiXBw6iMyfd6LWXhu88FyRfBOpvfs1yXMnah6YL78osBcXHhhcfA7t
-        7/rcN2N+IryYVwnJHDIHchSuA4Oxh8yFWYhhE1eJUyd3ayrQK5lx7QoLibnnlYX+khl9QjPS/kATxbbt
-        L5nRjAxF/rIwWjas2XaHguAFORuApQBhnEAAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAD+SURBVEhL7ZbN
+        CcJAEIVD2ko/ChILEARjAdFjsIekgmAqEOwhqB14U+L7YLyENT+sgoc8+CCzO3lD3J3BYIiapgnFWtTi
+        KhLWbNtfMluKh0iNp5jZtr9kVoncQuJClBb6S2ZnkVlInLFmob+mAr367wJKpInmohSnD9xFuwBrrlzg
+        WsciJHkraKJcHDqIzJ93otZeG7zwXJF8E6m9+zXJcydqHpgvvyiwFxceGFx8Du3v+tw3Y34ivJhXCckc
+        MgdyFK4Dg7GHzIVZiGETV4lTJ3drKtArmXHtCguJueeVhf6SGX1CM9L+QBPFtu0vmdGMDEX+sjBaNqzZ
+        doeC4AU5G4ClAGGcQAAAAABJRU5ErkJggg==
 </value>
   </data>
 </root>
