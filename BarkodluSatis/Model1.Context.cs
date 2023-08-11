@@ -31,5 +31,6 @@ namespace BarkodluSatis
         public virtual DbSet<Islem> Islem { get; set; }
         public virtual DbSet<IslemOzet> IslemOzet { get; set; }
         public virtual DbSet<Satis> Satis { get; set; }
+        public virtual DbSet<UrunGrup> UrunGrup { get; set; }
     }
 }

@@ -83,6 +83,13 @@
           <Property Name="Tarih" Type="datetime" />
           <Property Name="Kullanici" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="UrunGrup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunGrupAd" Type="nvarchar" MaxLength="100" />
+        </EntityType>
         <EntityContainer Name="BarkodDbModelStoreContainer">
           <EntitySet Name="HizliUrun" EntityType="Self.HizliUrun" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Islem" EntityType="Self.Islem" Schema="dbo" store:Type="Tables" />
@@ -90,6 +97,7 @@
           <EntitySet Name="Satis" EntityType="Self.Satis" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Terazi" EntityType="Self.Terazi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Urun" EntityType="Self.Urun" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UrunGrup" EntityType="Self.UrunGrup" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -120,6 +128,7 @@
           <EntitySet Name="Islem" EntityType="BarkodDbModel.Islem" />
           <EntitySet Name="IslemOzet" EntityType="BarkodDbModel.IslemOzet" />
           <EntitySet Name="Satis" EntityType="BarkodDbModel.Satis" />
+          <EntitySet Name="UrunGrup" EntityType="BarkodDbModel.UrunGrup" />
         </EntityContainer>
         <EntityType Name="Terazi">
           <Key>
@@ -180,6 +189,13 @@
           <Property Name="Iade" Type="Boolean" />
           <Property Name="Tarih" Type="DateTime" Precision="3" />
           <Property Name="Kullanici" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UrunGrup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunGrupAd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -268,6 +284,14 @@
                 <ScalarProperty Name="UrunAd" ColumnName="UrunAd" />
                 <ScalarProperty Name="IslemNo" ColumnName="IslemNo" />
                 <ScalarProperty Name="SatisId" ColumnName="SatisId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UrunGrup">
+            <EntityTypeMapping TypeName="BarkodDbModel.UrunGrup">
+              <MappingFragment StoreEntitySet="UrunGrup">
+                <ScalarProperty Name="UrunGrupAd" ColumnName="UrunGrupAd" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
