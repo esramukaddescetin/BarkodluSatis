@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fUrunGiris));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.LBLKullanici = new BarkodluSatis.lStandart();
             this.lStandart11 = new BarkodluSatis.lStandart();
@@ -245,6 +245,7 @@
             this.BTNBarkodOlustur.Text = "Barkod Oluştur";
             this.BTNBarkodOlustur.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNBarkodOlustur.UseVisualStyleBackColor = false;
+            this.BTNBarkodOlustur.Click += new System.EventHandler(this.BTNBarkodOlustur_Click);
             // 
             // BTNUrunGrubuEkle
             // 
@@ -439,17 +440,17 @@
             this.GRIDUrunler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.GRIDUrunler.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.GRIDUrunler.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(3);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GRIDUrunler.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GRIDUrunler.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.GRIDUrunler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GRIDUrunler.DefaultCellStyle = dataGridViewCellStyle2;
+            this.GRIDUrunler.DefaultCellStyle = dataGridViewCellStyle1;
             this.GRIDUrunler.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GRIDUrunler.EnableHeadersVisualStyles = false;
             this.GRIDUrunler.Location = new System.Drawing.Point(0, 0);
@@ -457,9 +458,9 @@
             this.GRIDUrunler.MultiSelect = false;
             this.GRIDUrunler.Name = "GRIDUrunler";
             this.GRIDUrunler.ReadOnly = true;
-            this.GRIDUrunler.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.GRIDUrunler.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.GRIDUrunler.RowHeadersVisible = false;
-            this.GRIDUrunler.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.GRIDUrunler.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.GRIDUrunler.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.GRIDUrunler.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(3);
             this.GRIDUrunler.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Silver;

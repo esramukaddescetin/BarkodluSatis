@@ -4,7 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="BarkodDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BarkodDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Barkod">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BarkodNo" Type="int" />
+        </EntityType>
         <EntityType Name="HizliUrun">
           <Key>
             <PropertyRef Name="Id" />
@@ -91,6 +98,7 @@
           <Property Name="UrunGrupAd" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityContainer Name="BarkodDbModelStoreContainer">
+          <EntitySet Name="Barkod" EntityType="Self.Barkod" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HizliUrun" EntityType="Self.HizliUrun" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Islem" EntityType="Self.Islem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IslemOzet" EntityType="Self.IslemOzet" Schema="dbo" store:Type="Tables" />
@@ -99,43 +107,17 @@
           <EntitySet Name="Urun" EntityType="Self.Urun" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UrunGrup" EntityType="Self.UrunGrup" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BarkodDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Urun">
-          <Key>
-            <PropertyRef Name="UrunId" />
-          </Key>
-          <Property Name="UrunId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Barkod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UrunAd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Aciklama" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="UrunGrup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="AlisFiyat" Type="Double" />
-          <Property Name="SatisFiyat" Type="Double" />
-          <Property Name="KdvOrani" Type="Int32" />
-          <Property Name="KdvTutari" Type="Double" />
-          <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Miktar" Type="Double" />
-          <Property Name="Tarih" Type="DateTime" Precision="3" />
-          <Property Name="Kullanici" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityContainer Name="BarkodDbEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Urun" EntityType="Self.Urun" />
-          <EntitySet Name="Terazi" EntityType="BarkodDbModel.Terazi" />
-          <EntitySet Name="HizliUrun" EntityType="BarkodDbModel.HizliUrun" />
-          <EntitySet Name="Islem" EntityType="BarkodDbModel.Islem" />
-          <EntitySet Name="IslemOzet" EntityType="BarkodDbModel.IslemOzet" />
-          <EntitySet Name="Satis" EntityType="BarkodDbModel.Satis" />
-          <EntitySet Name="UrunGrup" EntityType="BarkodDbModel.UrunGrup" />
-        </EntityContainer>
-        <EntityType Name="Terazi">
+        <EntityType Name="Barkod">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TeraziOnEk" Type="Int32" />
+          <Property Name="BarkodNo" Type="Int32" />
         </EntityType>
         <EntityType Name="HizliUrun">
           <Key>
@@ -190,6 +172,31 @@
           <Property Name="Tarih" Type="DateTime" Precision="3" />
           <Property Name="Kullanici" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Terazi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeraziOnEk" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Urun">
+          <Key>
+            <PropertyRef Name="UrunId" />
+          </Key>
+          <Property Name="UrunId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Barkod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UrunAd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Aciklama" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UrunGrup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AlisFiyat" Type="Double" />
+          <Property Name="SatisFiyat" Type="Double" />
+          <Property Name="KdvOrani" Type="Int32" />
+          <Property Name="KdvTutari" Type="Double" />
+          <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Miktar" Type="Double" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="Kullanici" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="UrunGrup">
           <Key>
             <PropertyRef Name="Id" />
@@ -197,12 +204,95 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UrunGrupAd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityContainer Name="BarkodDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Barkod" EntityType="Self.Barkod" />
+          <EntitySet Name="HizliUrun" EntityType="Self.HizliUrun" />
+          <EntitySet Name="Islem" EntityType="Self.Islem" />
+          <EntitySet Name="IslemOzet" EntityType="Self.IslemOzet" />
+          <EntitySet Name="Satis" EntityType="Self.Satis" />
+          <EntitySet Name="Terazi" EntityType="Self.Terazi" />
+          <EntitySet Name="Urun" EntityType="Self.Urun" />
+          <EntitySet Name="UrunGrup" EntityType="Self.UrunGrup" />
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="BarkodDbModelStoreContainer" CdmEntityContainer="BarkodDbEntities">
+          <EntitySetMapping Name="Barkod">
+            <EntityTypeMapping TypeName="BarkodDbModel.Barkod">
+              <MappingFragment StoreEntitySet="Barkod">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BarkodNo" ColumnName="BarkodNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HizliUrun">
+            <EntityTypeMapping TypeName="BarkodDbModel.HizliUrun">
+              <MappingFragment StoreEntitySet="HizliUrun">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="UrunAd" ColumnName="UrunAd" />
+                <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Islem">
+            <EntityTypeMapping TypeName="BarkodDbModel.Islem">
+              <MappingFragment StoreEntitySet="Islem">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IslemNo" ColumnName="IslemNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IslemOzet">
+            <EntityTypeMapping TypeName="BarkodDbModel.IslemOzet">
+              <MappingFragment StoreEntitySet="IslemOzet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IslemNo" ColumnName="IslemNo" />
+                <ScalarProperty Name="Iade" ColumnName="Iade" />
+                <ScalarProperty Name="OdemeSekli" ColumnName="OdemeSekli" />
+                <ScalarProperty Name="Nakit" ColumnName="Nakit" />
+                <ScalarProperty Name="Kart" ColumnName="Kart" />
+                <ScalarProperty Name="Gelir" ColumnName="Gelir" />
+                <ScalarProperty Name="Gider" ColumnName="Gider" />
+                <ScalarProperty Name="AlisFiyatToplam" ColumnName="AlisFiyatToplam" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Kullanici" ColumnName="Kullanici" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Satis">
+            <EntityTypeMapping TypeName="BarkodDbModel.Satis">
+              <MappingFragment StoreEntitySet="Satis">
+                <ScalarProperty Name="SatisId" ColumnName="SatisId" />
+                <ScalarProperty Name="IslemNo" ColumnName="IslemNo" />
+                <ScalarProperty Name="UrunAd" ColumnName="UrunAd" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="UrunGrup" ColumnName="UrunGrup" />
+                <ScalarProperty Name="Birim" ColumnName="Birim" />
+                <ScalarProperty Name="AlisFiyat" ColumnName="AlisFiyat" />
+                <ScalarProperty Name="SatisFiyat" ColumnName="SatisFiyat" />
+                <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+                <ScalarProperty Name="Toplam" ColumnName="Toplam" />
+                <ScalarProperty Name="KdvTutari" ColumnName="KdvTutari" />
+                <ScalarProperty Name="OdemeSekli" ColumnName="OdemeSekli" />
+                <ScalarProperty Name="Iade" ColumnName="Iade" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Kullanici" ColumnName="Kullanici" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Terazi">
+            <EntityTypeMapping TypeName="BarkodDbModel.Terazi">
+              <MappingFragment StoreEntitySet="Terazi">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TeraziOnEk" ColumnName="TeraziOnEk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Urun">
             <EntityTypeMapping TypeName="BarkodDbModel.Urun">
               <MappingFragment StoreEntitySet="Urun">
@@ -222,76 +312,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Terazi">
-            <EntityTypeMapping TypeName="BarkodDbModel.Terazi">
-              <MappingFragment StoreEntitySet="Terazi">
-                <ScalarProperty Name="TeraziOnEk" ColumnName="TeraziOnEk" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HizliUrun">
-            <EntityTypeMapping TypeName="BarkodDbModel.HizliUrun">
-              <MappingFragment StoreEntitySet="HizliUrun">
-                <ScalarProperty Name="fiyat" ColumnName="fiyat" />
-                <ScalarProperty Name="UrunAd" ColumnName="UrunAd" />
-                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Islem">
-            <EntityTypeMapping TypeName="BarkodDbModel.Islem">
-              <MappingFragment StoreEntitySet="Islem">
-                <ScalarProperty Name="IslemNo" ColumnName="IslemNo" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="IslemOzet">
-            <EntityTypeMapping TypeName="BarkodDbModel.IslemOzet">
-              <MappingFragment StoreEntitySet="IslemOzet">
-                <ScalarProperty Name="Kullanici" ColumnName="Kullanici" />
-                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
-                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
-                <ScalarProperty Name="AlisFiyatToplam" ColumnName="AlisFiyatToplam" />
-                <ScalarProperty Name="Gider" ColumnName="Gider" />
-                <ScalarProperty Name="Gelir" ColumnName="Gelir" />
-                <ScalarProperty Name="Kart" ColumnName="Kart" />
-                <ScalarProperty Name="Nakit" ColumnName="Nakit" />
-                <ScalarProperty Name="OdemeSekli" ColumnName="OdemeSekli" />
-                <ScalarProperty Name="Iade" ColumnName="Iade" />
-                <ScalarProperty Name="IslemNo" ColumnName="IslemNo" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Satis">
-            <EntityTypeMapping TypeName="BarkodDbModel.Satis">
-              <MappingFragment StoreEntitySet="Satis">
-                <ScalarProperty Name="Kullanici" ColumnName="Kullanici" />
-                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
-                <ScalarProperty Name="Iade" ColumnName="Iade" />
-                <ScalarProperty Name="OdemeSekli" ColumnName="OdemeSekli" />
-                <ScalarProperty Name="KdvTutari" ColumnName="KdvTutari" />
-                <ScalarProperty Name="Toplam" ColumnName="Toplam" />
-                <ScalarProperty Name="Miktar" ColumnName="Miktar" />
-                <ScalarProperty Name="SatisFiyat" ColumnName="SatisFiyat" />
-                <ScalarProperty Name="AlisFiyat" ColumnName="AlisFiyat" />
-                <ScalarProperty Name="Birim" ColumnName="Birim" />
-                <ScalarProperty Name="UrunGrup" ColumnName="UrunGrup" />
-                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
-                <ScalarProperty Name="UrunAd" ColumnName="UrunAd" />
-                <ScalarProperty Name="IslemNo" ColumnName="IslemNo" />
-                <ScalarProperty Name="SatisId" ColumnName="SatisId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="UrunGrup">
             <EntityTypeMapping TypeName="BarkodDbModel.UrunGrup">
               <MappingFragment StoreEntitySet="UrunGrup">
-                <ScalarProperty Name="UrunGrupAd" ColumnName="UrunGrupAd" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UrunGrupAd" ColumnName="UrunGrupAd" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

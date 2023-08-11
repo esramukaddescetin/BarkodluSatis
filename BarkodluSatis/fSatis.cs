@@ -14,6 +14,8 @@ namespace BarkodluSatis
 {
     public partial class fSatis : Form
     {
+        BarkodDbEntities db = new BarkodDbEntities();
+
         private void fSatis_Load(object sender, EventArgs e)
         {
             HizliButonDoldur();
@@ -60,7 +62,6 @@ namespace BarkodluSatis
             }
         }
 
-        BarkodDbEntities db = new BarkodDbEntities();
 
         public fSatis()
         {

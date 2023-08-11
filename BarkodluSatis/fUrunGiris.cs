@@ -139,5 +139,12 @@ namespace BarkodluSatis
             fUrunGrubuEkle f= new fUrunGrubuEkle();
             f.ShowDialog();
         }
+
+        private void BTNBarkodOlustur_Click(object sender, EventArgs e)
+        {
+            //var barkodno = db.Barkod.First();
+            //int karakter = barkodno.BarkodNo.ToString().Length;
+
+        }
     }
 }
