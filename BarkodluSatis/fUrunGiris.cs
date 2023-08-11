@@ -42,33 +42,89 @@ namespace BarkodluSatis
 
         private void BTNKaydet_Click(object sender, EventArgs e)
         {
-            if (TXTBarkod.Text!="" && TXTUrunAdi.Text!="" && CBUrunGrubu.Text!="" && TXTAlisFiyati.Text!="" && TXTSatisFiyati.Text!="" && TXTKdvOrani.Text!="" && TXTMiktar.Text!="")
+            if (TXTBarkod.Text != "" && TXTUrunAdi.Text != "" && CBUrunGrubu.Text != "" && TXTAlisFiyati.Text != "" && TXTSatisFiyati.Text != "" && TXTKdvOrani.Text != "" && TXTMiktar.Text != "")
             {
-                Urun urun = new Urun();
-                urun.Barkod= TXTBarkod.Text;
-                urun.UrunAd= TXTUrunAdi.Text;
-                urun.Aciklama= TXTAciklama.Text;
-                urun.UrunGrup= CBUrunGrubu.Text;
-                urun.AlisFiyat = double.Parse(TXTAlisFiyati.Text);
-                urun.SatisFiyat = double.Parse(TXTSatisFiyati.Text);
-                urun.KdvOrani=int.Parse(TXTKdvOrani.Text);
-                urun.KdvTutari = Math.Round(Islemler.DoubleYap(TXTSatisFiyati.Text) * int.Parse(TXTKdvOrani.Text)/100 , 2 );
-                urun.Miktar= double.Parse(TXTMiktar.Text);
-                urun.Birim = "Adet";
-                urun.Tarih=DateTime.Now;
-                urun.Kullanici = LBLKullanici.Text;
-                db.Urun.Add(urun);
-                db.SaveChanges();
-                TXTBarkod.Clear();
-                TXTAciklama.Clear();
-                TXTUrunAdi.Clear();
-                TXTAlisFiyati.Text="0";
-                TXTSatisFiyati.Text ="0";
-                TXTMiktar.Text ="0";
-                TXTKdvOrani.Text="8";
-                GRIDUrunler.DataSource=db.Urun.OrderByDescending(a=>a.UrunId).Take(10).ToList();
+                //Aynı barkodlu ürün varsa güncelleme yapılır.
+                if (db.Urun.Any(a => a.Barkod == TXTBarkod.Text))
+                {
+                    var guncelle = db.Urun.SingleOrDefault(a => a.Barkod == TXTBarkod.Text);
+                    guncelle.UrunAd = TXTUrunAdi.Text;
+                    guncelle.Aciklama = TXTAciklama.Text;
+                    guncelle.UrunGrup = CBUrunGrubu.Text;
+                    guncelle.AlisFiyat = double.Parse(TXTAlisFiyati.Text);
+                    guncelle.SatisFiyat = double.Parse(TXTSatisFiyati.Text);
+                    guncelle.KdvOrani = int.Parse(TXTKdvOrani.Text);
+                    guncelle.KdvTutari = Math.Round(Islemler.DoubleYap(TXTSatisFiyati.Text) * int.Parse(TXTKdvOrani.Text) / 100, 2);
+                    //Eklenecek miktar girilmeli.
+                    guncelle.Miktar += double.Parse(TXTMiktar.Text);
+                    guncelle.Birim = "Adet";
+                    guncelle.Tarih = DateTime.Now;
+                    guncelle.Kullanici = LBLKullanici.Text;
+                    Temizle();
+                    db.SaveChanges();
+                    GRIDUrunler.DataSource = db.Urun.OrderByDescending(a => a.UrunId).Take(10).ToList();
 
+                }
+                //O barkod kayıtlı değilse yeni ürün eklenir.
+                else
+                {
+                    Urun urun = new Urun();
+                    urun.Barkod = TXTBarkod.Text;
+                    urun.UrunAd = TXTUrunAdi.Text;
+                    urun.Aciklama = TXTAciklama.Text;
+                    urun.UrunGrup = CBUrunGrubu.Text;
+                    urun.AlisFiyat = double.Parse(TXTAlisFiyati.Text);
+                    urun.SatisFiyat = double.Parse(TXTSatisFiyati.Text);
+                    urun.KdvOrani = int.Parse(TXTKdvOrani.Text);
+                    urun.KdvTutari = Math.Round(Islemler.DoubleYap(TXTSatisFiyati.Text) * int.Parse(TXTKdvOrani.Text) / 100, 2);
+                    urun.Miktar = double.Parse(TXTMiktar.Text);
+                    urun.Birim = "Adet";
+                    urun.Tarih = DateTime.Now;
+                    urun.Kullanici = LBLKullanici.Text;
+                    db.Urun.Add(urun);
+                    db.SaveChanges();
+                    Temizle();
+                    GRIDUrunler.DataSource = db.Urun.OrderByDescending(a => a.UrunId).Take(10).ToList();
+                }
             }
+            else
+            {
+                MessageBox.Show("Bilgi Girişlerini Kontrol Ediniz!");
+                TXTBarkod.Focus();
+            }
+                
+
+            
+        }
+
+        private void TXTUrunAra_TextChanged(object sender, EventArgs e)
+        {
+            if (TXTUrunAra.Text.Length >= 2)
+            {
+                string urunad=TXTUrunAra.Text;
+                GRIDUrunler.DataSource = db.Urun.Where(a => a.UrunAd.Contains(urunad)).ToList();
+            }
+        }
+        private void Temizle()
+        {
+            TXTBarkod.Clear();
+            TXTAciklama.Clear();
+            TXTUrunAdi.Clear();
+            TXTAlisFiyati.Text = "0";
+            TXTSatisFiyati.Text = "0";
+            TXTMiktar.Text = "0";
+            TXTKdvOrani.Text = "8";
+            TXTBarkod.Focus();
+        }
+
+        private void BTNIptal_Click(object sender, EventArgs e)
+        {
+            Temizle();
+        }
+
+        private void fUrunGiris_Load(object sender, EventArgs e)
+        {
+            TXTUrunSayisi.Text = db.Urun.Count().ToString();
         }
     }
 }
