@@ -91,6 +91,12 @@
     <Compile Include="fSatis.Designer.cs">
       <DependentUpon>fSatis.cs</DependentUpon>
     </Compile>
+    <Compile Include="fStok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fStok.Designer.cs">
+      <DependentUpon>fStok.cs</DependentUpon>
+    </Compile>
     <Compile Include="fUrunGiris.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fSatis.resx">
       <DependentUpon>fSatis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fStok.resx">
+      <DependentUpon>fStok.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fUrunGiris.resx">
       <DependentUpon>fUrunGiris.cs</DependentUpon>
