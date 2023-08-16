@@ -25,6 +25,7 @@ namespace BarkodluSatis
                 string urunad = TXTUrunAra.Text;
                 var urunler = db.Urun.Where(a => a.UrunAd.Contains(urunad)).ToList();
                 GRIDUrunler.DataSource = urunler;
+                Islemler.GridDüzenle(GRIDUrunler);
             }
         }
 
@@ -54,17 +55,18 @@ namespace BarkodluSatis
             if(CBTumu.Checked)
             {
                 GRIDUrunler.DataSource = db.Urun.ToList();
+                GRIDUrunler.Columns["AlisFiyat"].Visible = false;
+                GRIDUrunler.Columns["SatisFiyat"].Visible = false;
+                GRIDUrunler.Columns["KdvOrani"].Visible = false;
+                GRIDUrunler.Columns["KdvTutari"].Visible = false;
+                GRIDUrunler.Columns["Miktar"].Visible = false;
+
+                Islemler.GridDüzenle(GRIDUrunler);
             }
             else
             {
                 GRIDUrunler.DataSource=null;
             }
-
-        }
-
-        private void fHizliButonUrunEkle_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
