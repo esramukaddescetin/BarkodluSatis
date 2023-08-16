@@ -69,7 +69,7 @@ namespace BarkodluSatis
 
         private void TNumeric_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsDigit(e.KeyChar) == false && e.KeyChar!=(char)08)
+            if (char.IsDigit(e.KeyChar) == false && e.KeyChar!=(char)08 && e.KeyChar != (char)44)
                 e.Handled = true;
         }
 

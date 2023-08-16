@@ -33,6 +33,7 @@
             this.TXTUrunGrupAd = new BarkodluSatis.tStandart();
             this.LBUrunGrup = new System.Windows.Forms.ListBox();
             this.BTNEkle = new BarkodluSatis.bStandart();
+            this.BTNSil = new BarkodluSatis.bStandart();
             this.SuspendLayout();
             // 
             // lStandart1
@@ -73,15 +74,33 @@
             this.BTNEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BTNEkle.ForeColor = System.Drawing.Color.White;
             this.BTNEkle.Image = ((System.Drawing.Image)(resources.GetObject("BTNEkle.Image")));
-            this.BTNEkle.Location = new System.Drawing.Point(12, 262);
-            this.BTNEkle.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.BTNEkle.Location = new System.Drawing.Point(145, 262);
+            this.BTNEkle.Margin = new System.Windows.Forms.Padding(1);
             this.BTNEkle.Name = "BTNEkle";
-            this.BTNEkle.Size = new System.Drawing.Size(250, 74);
+            this.BTNEkle.Size = new System.Drawing.Size(117, 74);
             this.BTNEkle.TabIndex = 3;
             this.BTNEkle.Text = "Ekle";
             this.BTNEkle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNEkle.UseVisualStyleBackColor = false;
             this.BTNEkle.Click += new System.EventHandler(this.BTNEkle_Click);
+            // 
+            // BTNSil
+            // 
+            this.BTNSil.BackColor = System.Drawing.Color.Orange;
+            this.BTNSil.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
+            this.BTNSil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BTNSil.ForeColor = System.Drawing.Color.White;
+            this.BTNSil.Image = ((System.Drawing.Image)(resources.GetObject("BTNSil.Image")));
+            this.BTNSil.Location = new System.Drawing.Point(12, 262);
+            this.BTNSil.Margin = new System.Windows.Forms.Padding(1);
+            this.BTNSil.Name = "BTNSil";
+            this.BTNSil.Size = new System.Drawing.Size(117, 74);
+            this.BTNSil.TabIndex = 4;
+            this.BTNSil.Text = "Sil";
+            this.BTNSil.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNSil.UseVisualStyleBackColor = false;
+            this.BTNSil.Click += new System.EventHandler(this.BTNSil_Click);
             // 
             // fUrunGrubuEkle
             // 
@@ -89,6 +108,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(276, 355);
+            this.Controls.Add(this.BTNSil);
             this.Controls.Add(this.BTNEkle);
             this.Controls.Add(this.LBUrunGrup);
             this.Controls.Add(this.TXTUrunGrupAd);
@@ -108,5 +128,6 @@
         private tStandart TXTUrunGrupAd;
         private System.Windows.Forms.ListBox LBUrunGrup;
         private bStandart BTNEkle;
+        private bStandart BTNSil;
     }
 }
