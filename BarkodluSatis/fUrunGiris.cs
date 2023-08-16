@@ -83,6 +83,12 @@ namespace BarkodluSatis
                     urun.Kullanici = LBLKullanici.Text;
                     db.Urun.Add(urun);
                     db.SaveChanges();
+                    if (TXTBarkod.Text.Length==8)
+                    {
+                        var ozelbarkod = db.Barkod.First();
+                        ozelbarkod.BarkodNo += 1;
+                        db.SaveChanges() ;
+                    }
                     Temizle();
                     GRIDUrunler.DataSource = db.Urun.OrderByDescending(a => a.UrunId).Take(10).ToList();
                 }
@@ -142,9 +148,25 @@ namespace BarkodluSatis
 
         private void BTNBarkodOlustur_Click(object sender, EventArgs e)
         {
-            //var barkodno = db.Barkod.First();
-            //int karakter = barkodno.BarkodNo.ToString().Length;
-
+            var barkodno = db.Barkod.First();
+            int karakter = barkodno.BarkodNo.ToString().Length;
+            string sifirlar = string.Empty;
+            for (int i = 0; i < 8-karakter; i++)
+            {
+                sifirlar = sifirlar + "0";
+            }
+            string olusanbarkod = sifirlar + barkodno.BarkodNo.ToString();
+            TXTBarkod.Text = olusanbarkod;
+            TXTUrunAdi.Focus();
         }
+
+        private void TXTSatisFiyati_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar)==false && e.KeyChar != (Char)08 && e.KeyChar != (Char)44 && e.KeyChar != (Char)45)
+            {
+                e.Handled = true;
+            }
+        }
+
     }
 }
