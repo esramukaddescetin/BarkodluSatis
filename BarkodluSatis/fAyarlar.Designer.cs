@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -57,6 +58,10 @@
             this.CBFiyatGuncelle = new System.Windows.Forms.CheckBox();
             this.CBYedekleme = new System.Windows.Forms.CheckBox();
             this.GRIDListeKullanici = new BarkodluSatis.gridOzel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.düzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.silToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LBLKullaniciId = new BarkodluSatis.lStandart();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -64,6 +69,7 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GRIDListeKullanici)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -74,7 +80,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(977, 601);
+            this.tabControl1.Size = new System.Drawing.Size(1103, 538);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -83,7 +89,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(969, 575);
+            this.tabPage1.Size = new System.Drawing.Size(1095, 512);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "KULLANICI";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -97,6 +103,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.LBLKullaniciId);
             this.splitContainer1.Panel1.Controls.Add(this.CBYedekleme);
             this.splitContainer1.Panel1.Controls.Add(this.CBFiyatGuncelle);
             this.splitContainer1.Panel1.Controls.Add(this.CBAyarlar);
@@ -124,7 +131,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.GRIDListeKullanici);
-            this.splitContainer1.Size = new System.Drawing.Size(963, 569);
+            this.splitContainer1.Size = new System.Drawing.Size(1089, 506);
             this.splitContainer1.SplitterDistance = 465;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -410,6 +417,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.GRIDListeKullanici.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.GRIDListeKullanici.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GRIDListeKullanici.ContextMenuStrip = this.contextMenuStrip1;
             this.GRIDListeKullanici.DefaultCellStyle = dataGridViewCellStyle1;
             this.GRIDListeKullanici.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GRIDListeKullanici.EnableHeadersVisualStyles = false;
@@ -427,18 +435,52 @@
             this.GRIDListeKullanici.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.GRIDListeKullanici.RowTemplate.Height = 32;
             this.GRIDListeKullanici.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GRIDListeKullanici.Size = new System.Drawing.Size(494, 569);
+            this.GRIDListeKullanici.Size = new System.Drawing.Size(620, 506);
             this.GRIDListeKullanici.TabIndex = 2;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.düzenleToolStripMenuItem,
+            this.silToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(117, 48);
+            // 
+            // düzenleToolStripMenuItem
+            // 
+            this.düzenleToolStripMenuItem.Name = "düzenleToolStripMenuItem";
+            this.düzenleToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.düzenleToolStripMenuItem.Text = "Düzenle";
+            this.düzenleToolStripMenuItem.Click += new System.EventHandler(this.düzenleToolStripMenuItem_Click);
+            // 
+            // silToolStripMenuItem
+            // 
+            this.silToolStripMenuItem.Name = "silToolStripMenuItem";
+            this.silToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.silToolStripMenuItem.Text = "Sil";
+            // 
+            // LBLKullaniciId
+            // 
+            this.LBLKullaniciId.AutoSize = true;
+            this.LBLKullaniciId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LBLKullaniciId.ForeColor = System.Drawing.Color.DarkCyan;
+            this.LBLKullaniciId.Location = new System.Drawing.Point(224, 20);
+            this.LBLKullaniciId.Name = "LBLKullaniciId";
+            this.LBLKullaniciId.Size = new System.Drawing.Size(0, 20);
+            this.LBLKullaniciId.TabIndex = 15;
+            this.LBLKullaniciId.Visible = false;
             // 
             // fAyarlar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(977, 601);
+            this.ClientSize = new System.Drawing.Size(1103, 538);
             this.Controls.Add(this.tabControl1);
             this.Name = "fAyarlar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fAyarlar";
+            this.Load += new System.EventHandler(this.fAyarlar_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -447,6 +489,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GRIDListeKullanici)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -481,5 +524,9 @@
         private System.Windows.Forms.CheckBox CBSatisEkrani;
         private lStandart lStandart8;
         private gridOzel GRIDListeKullanici;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem düzenleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem silToolStripMenuItem;
+        private lStandart LBLKullaniciId;
     }
 }
