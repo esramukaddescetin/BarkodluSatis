@@ -63,5 +63,12 @@ namespace BarkodluSatis
         {
             Application.Exit();
         }
+
+        private void BTNKullaniciDegistir_Click(object sender, EventArgs e)
+        {
+            fLogin login = new fLogin();
+            login.Show();
+            this.Hide();
+        }
     }
 }

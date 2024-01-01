@@ -31,16 +31,23 @@ namespace BarkodluSatis
                             if (bak!=null)
                             {
                                 Cursor.Current = Cursors.WaitCursor;
-                                //fBaslangic f=new fBaslangic();
-                                //39. video dk. 14 tekrar bak yap!!
-                                //f.bSatisIslemi.Enable=(bool)bak.Satis;
-                                //f.bGenelRapor.Enable=(bool)bak.Rapor;
-                                //f.bStok.Enable=(bool)bak.Stok;
-                                //f.bUrunGiris.Enable=(bool)bak.UrunGiris;
-                                //f.bAyarlar.Enable=(bool)bak.Ayarlar;
-                                //f.bFiyatGuncelle.Enable=(bool)bak.FiyatGuncelle;
-                                //f.bYedekleme.Enable=(bool)bak.Yedekleme;
+                                fBaslangic f = new fBaslangic();
+                                f.BTNSatisIslemi.Enabled = (bool)bak.Satis;
+                                f.BTNGenelRapor.Enabled = (bool)bak.Rapor;
+                                f.BTNStok.Enabled = (bool)bak.Stok;
+                                f.BTNUrunGiris.Enabled = (bool)bak.UrunGiris;
+                                f.BTNAyarlar.Enabled = (bool)bak.Ayarlar;
+                                f.BTNFiyatGuncelle.Enabled = (bool)bak.FiyatGüncelle;
+                                f.BTNYedekleme.Enabled = (bool)bak.Yedekleme;
+                                f.LBLKullanici.Text = bak.AdSoyad;
+                                //var isyeri = db.Sabit.FirstorDefault(); video39devam.dk20
+                                f.Show();
+                                this.Hide();
                                 Cursor.Current = Cursors.Default;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Hatalı Giriş!");
                             }
                         }
                     }

@@ -100,6 +100,7 @@
             this.BTNKullaniciDegistir.Text = "Kullanıcı Değiştir";
             this.BTNKullaniciDegistir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BTNKullaniciDegistir.UseVisualStyleBackColor = false;
+            this.BTNKullaniciDegistir.Click += new System.EventHandler(this.BTNKullaniciDegistir_Click);
             // 
             // BTNYedekleme
             // 
@@ -258,15 +259,15 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button BTNSatisIslemi;
         private System.Windows.Forms.Button BTNCikis;
-        private System.Windows.Forms.Button BTNKullaniciDegistir;
-        private System.Windows.Forms.Button BTNYedekleme;
-        private System.Windows.Forms.Button BTNFiyatGuncelle;
-        private System.Windows.Forms.Button BTNAyarlar;
-        private System.Windows.Forms.Button BTNUrunGiris;
-        private System.Windows.Forms.Button BTNStok;
-        private System.Windows.Forms.Button BTNGenelRapor;
-        private System.Windows.Forms.Label LBLKullanici;
+        public System.Windows.Forms.Button BTNSatisIslemi;
+        public System.Windows.Forms.Button BTNKullaniciDegistir;
+        public System.Windows.Forms.Button BTNYedekleme;
+        public System.Windows.Forms.Button BTNFiyatGuncelle;
+        public System.Windows.Forms.Button BTNAyarlar;
+        public System.Windows.Forms.Button BTNUrunGiris;
+        public System.Windows.Forms.Button BTNStok;
+        public System.Windows.Forms.Button BTNGenelRapor;
+        public System.Windows.Forms.Label LBLKullanici;
     }
 }

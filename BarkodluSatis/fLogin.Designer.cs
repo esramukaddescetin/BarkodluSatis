@@ -45,7 +45,7 @@
             this.TXTSifre.Name = "TXTSifre";
             this.TXTSifre.PasswordChar = '*';
             this.TXTSifre.Size = new System.Drawing.Size(228, 29);
-            this.TXTSifre.TabIndex = 12;
+            this.TXTSifre.TabIndex = 1;
             // 
             // TXTKullaniciAdi
             // 
@@ -53,7 +53,7 @@
             this.TXTKullaniciAdi.Location = new System.Drawing.Point(143, 90);
             this.TXTKullaniciAdi.Name = "TXTKullaniciAdi";
             this.TXTKullaniciAdi.Size = new System.Drawing.Size(228, 29);
-            this.TXTKullaniciAdi.TabIndex = 11;
+            this.TXTKullaniciAdi.TabIndex = 0;
             // 
             // label3
             // 
@@ -97,7 +97,7 @@
             this.BTNGiris.Location = new System.Drawing.Point(388, 90);
             this.BTNGiris.Name = "BTNGiris";
             this.BTNGiris.Size = new System.Drawing.Size(117, 72);
-            this.BTNGiris.TabIndex = 15;
+            this.BTNGiris.TabIndex = 2;
             this.BTNGiris.Text = "Giriş";
             this.BTNGiris.UseVisualStyleBackColor = false;
             this.BTNGiris.Click += new System.EventHandler(this.BTNGiris_Click);
