@@ -82,6 +82,7 @@
             this.BTNCikis.Text = "Çıkış";
             this.BTNCikis.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BTNCikis.UseVisualStyleBackColor = false;
+            this.BTNCikis.Click += new System.EventHandler(this.BTNCikis_Click);
             // 
             // BTNKullaniciDegistir
             // 
@@ -150,6 +151,7 @@
             this.BTNAyarlar.Text = "Ayarlar";
             this.BTNAyarlar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BTNAyarlar.UseVisualStyleBackColor = false;
+            this.BTNAyarlar.Click += new System.EventHandler(this.BTNAyarlar_Click);
             // 
             // BTNUrunGiris
             // 
@@ -167,6 +169,7 @@
             this.BTNUrunGiris.Text = "Ürün Giriş";
             this.BTNUrunGiris.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BTNUrunGiris.UseVisualStyleBackColor = false;
+            this.BTNUrunGiris.Click += new System.EventHandler(this.BTNUrunGiris_Click);
             // 
             // BTNStok
             // 
@@ -184,6 +187,7 @@
             this.BTNStok.Text = "Stok Takibi";
             this.BTNStok.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BTNStok.UseVisualStyleBackColor = false;
+            this.BTNStok.Click += new System.EventHandler(this.BTNStok_Click);
             // 
             // BTNGenelRapor
             // 
@@ -201,6 +205,7 @@
             this.BTNGenelRapor.Text = "Genel Rapor";
             this.BTNGenelRapor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BTNGenelRapor.UseVisualStyleBackColor = false;
+            this.BTNGenelRapor.Click += new System.EventHandler(this.BTNGenelRapor_Click);
             // 
             // BTNSatisIslemi
             // 

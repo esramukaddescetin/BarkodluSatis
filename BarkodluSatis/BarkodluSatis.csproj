@@ -115,6 +115,12 @@
     <Compile Include="fStok.Designer.cs">
       <DependentUpon>fStok.cs</DependentUpon>
     </Compile>
+    <Compile Include="fUrunGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fUrunGiris.Designer.cs">
+      <DependentUpon>fUrunGiris.cs</DependentUpon>
+    </Compile>
     <Compile Include="fUrunGrubuEkle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fStok.resx">
       <DependentUpon>fStok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fUrunGiris.resx">
+      <DependentUpon>fUrunGiris.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fUrunGrubuEkle.resx">
       <DependentUpon>fUrunGrubuEkle.cs</DependentUpon>

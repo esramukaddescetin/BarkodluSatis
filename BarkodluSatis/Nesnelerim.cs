@@ -16,7 +16,7 @@ namespace BarkodluSatis
     {
     }
     //Bir class oluşturarak tasarlanmış label objesi üretmek için.
-    class lStandart : Label
+    public class lStandart : Label
     {
         public lStandart()
         {

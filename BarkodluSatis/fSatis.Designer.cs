@@ -257,7 +257,7 @@
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewImageColumn2});
             this.GRIDBekle.EnableHeadersVisualStyles = false;
-            this.GRIDBekle.Location = new System.Drawing.Point(451, 2);
+            this.GRIDBekle.Location = new System.Drawing.Point(237, 2);
             this.GRIDBekle.Margin = new System.Windows.Forms.Padding(0);
             this.GRIDBekle.MultiSelect = false;
             this.GRIDBekle.Name = "GRIDBekle";
@@ -280,7 +280,7 @@
             this.GRIDBekle.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.GRIDBekle.RowTemplate.Height = 32;
             this.GRIDBekle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GRIDBekle.Size = new System.Drawing.Size(133, 73);
+            this.GRIDBekle.Size = new System.Drawing.Size(133, 29);
             this.GRIDBekle.TabIndex = 8;
             this.GRIDBekle.Visible = false;
             // 
@@ -383,7 +383,7 @@
             // LBLKullanici
             // 
             this.LBLKullanici.AutoSize = true;
-            this.LBLKullanici.Location = new System.Drawing.Point(170, 18);
+            this.LBLKullanici.Location = new System.Drawing.Point(432, 9);
             this.LBLKullanici.Name = "LBLKullanici";
             this.LBLKullanici.Size = new System.Drawing.Size(65, 13);
             this.LBLKullanici.TabIndex = 5;
