@@ -16,7 +16,7 @@ namespace BarkodluSatis
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fAyarlar());
+            Application.Run(new fLogin());
         }
     }
 }

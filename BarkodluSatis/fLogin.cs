@@ -16,5 +16,41 @@ namespace BarkodluSatis
         {
             InitializeComponent();
         }
+
+        private void BTNGiris_Click(object sender, EventArgs e)
+        {
+            if (TXTKullaniciAdi.Text!=""&& TXTSifre.Text!="")
+            {
+                try
+                {
+                    using (var db= new BarkodDbEntities())
+                    {
+                        if (db.Kullanici.Any())
+                        {
+                            var bak = db.Kullanici.Where(x => x.KullaniciAd == TXTKullaniciAdi.Text && x.Sifre == TXTSifre.Text).FirstOrDefault();
+                            if (bak!=null)
+                            {
+                                Cursor.Current = Cursors.WaitCursor;
+                                //fBaslangic f=new fBaslangic();
+                                
+                                //f.bSatisIslemi.Enable=(bool)bak.Satis;
+                                //f.bGenelRapor.Enable=(bool)bak.Rapor;
+                                //f.bStok.Enable=(bool)bak.Stok;
+                                //f.bUrunGiris.Enable=(bool)bak.UrunGiris;
+                                //f.bAyarlar.Enable=(bool)bak.Ayarlar;
+                                //f.bFiyatGuncelle.Enable=(bool)bak.FiyatGuncelle;
+                                //f.bYedekleme.Enable=(bool)bak.Yedekleme;
+                                Cursor.Current = Cursors.Default;
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                    
+                }
+            }
+        }
     }
 }
