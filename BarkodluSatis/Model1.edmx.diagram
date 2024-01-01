@@ -13,6 +13,8 @@
         <EntityTypeShape EntityType="BarkodDbModel.Terazi" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BarkodDbModel.Urun" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BarkodDbModel.UrunGrup" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BarkodDbModel.StokHareket" Width="1.5" PointX="8.375" PointY="0.625" />
+        <EntityTypeShape EntityType="BarkodDbModel.Kullanici" Width="1.5" PointX="9.625" PointY="3.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

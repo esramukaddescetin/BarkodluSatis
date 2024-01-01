@@ -101,5 +101,13 @@ namespace BarkodluSatis
                 }
             }
         }
+
+        public static void StokGiris(string barkod,string urunad,string birim,double miktar,string urungrup,string kullanici)
+        {
+            using (var db = new BarkodDbEntities())
+            {
+
+            }
+        }
     }
 }

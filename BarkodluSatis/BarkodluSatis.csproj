@@ -73,11 +73,23 @@
     <Compile Include="Barkod.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="fAyarlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAyarlar.Designer.cs">
+      <DependentUpon>fAyarlar.cs</DependentUpon>
+    </Compile>
     <Compile Include="fHizliButonUrunEkle.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fHizliButonUrunEkle.Designer.cs">
       <DependentUpon>fHizliButonUrunEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fLogin.Designer.cs">
+      <DependentUpon>fLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="fNakitKart.cs">
       <SubType>Form</SubType>
@@ -109,6 +121,12 @@
     <Compile Include="fUrunGrubuEkle.Designer.cs">
       <DependentUpon>fUrunGrubuEkle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Giris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Giris.Designer.cs">
+      <DependentUpon>Giris.cs</DependentUpon>
+    </Compile>
     <Compile Include="HizliUrun.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -117,6 +135,9 @@
     </Compile>
     <Compile Include="Islemler.cs" />
     <Compile Include="IslemOzet.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kullanici.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model1.Context.cs">
@@ -140,6 +161,9 @@
     <Compile Include="Satis.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="StokHareket.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Terazi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -149,8 +173,14 @@
     <Compile Include="UrunGrup.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="fAyarlar.resx">
+      <DependentUpon>fAyarlar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fHizliButonUrunEkle.resx">
       <DependentUpon>fHizliButonUrunEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fLogin.resx">
+      <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fNakitKart.resx">
       <DependentUpon>fNakitKart.cs</DependentUpon>
@@ -166,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fUrunGrubuEkle.resx">
       <DependentUpon>fUrunGrubuEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Giris.resx">
+      <DependentUpon>Giris.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -251,6 +284,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\cross.png" />
+    <None Include="Resources\save %281%29.png" />
+    <None Include="Resources\barcode.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
