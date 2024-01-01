@@ -32,7 +32,7 @@ namespace BarkodluSatis
                             {
                                 Cursor.Current = Cursors.WaitCursor;
                                 //fBaslangic f=new fBaslangic();
-                                
+                                //39. video dk. 14 tekrar bak yap!!
                                 //f.bSatisIslemi.Enable=(bool)bak.Satis;
                                 //f.bGenelRapor.Enable=(bool)bak.Rapor;
                                 //f.bStok.Enable=(bool)bak.Stok;

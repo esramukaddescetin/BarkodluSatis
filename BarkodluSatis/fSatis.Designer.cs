@@ -2020,7 +2020,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn KdvTutari;
         private System.Windows.Forms.DataGridViewTextBoxColumn AlisFiyat;
         private System.Windows.Forms.DataGridViewImageColumn Sil;
-        private System.Windows.Forms.Label LBLKullanici;
         public System.Windows.Forms.Label LBLNakit;
         public System.Windows.Forms.Label LBLKart;
         public System.Windows.Forms.TextBox TXTGenelToplam;
@@ -2035,6 +2034,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        public System.Windows.Forms.Label LBLKullanici;
     }
 }
 

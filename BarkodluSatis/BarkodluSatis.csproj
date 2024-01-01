@@ -79,6 +79,12 @@
     <Compile Include="fAyarlar.Designer.cs">
       <DependentUpon>fAyarlar.cs</DependentUpon>
     </Compile>
+    <Compile Include="fBaslangic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fBaslangic.Designer.cs">
+      <DependentUpon>fBaslangic.cs</DependentUpon>
+    </Compile>
     <Compile Include="fHizliButonUrunEkle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +169,9 @@
     </Compile>
     <EmbeddedResource Include="fAyarlar.resx">
       <DependentUpon>fAyarlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fBaslangic.resx">
+      <DependentUpon>fBaslangic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fHizliButonUrunEkle.resx">
       <DependentUpon>fHizliButonUrunEkle.cs</DependentUpon>
@@ -266,6 +275,18 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\logout %281%29.png" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\change.png" />
+    <None Include="Resources\data.png" />
+    <None Include="Resources\best-price.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\gift.png" />
+    <None Include="Resources\revenue.png" />
+    <None Include="Resources\inventory.png" />
+    <None Include="Resources\business-report.png" />
+    <None Include="Resources\turkish-lira %281%29.png" />
+    <None Include="Resources\turkish-lira.png" />
     <None Include="Resources\cross.png" />
     <None Include="Resources\save %281%29.png" />
     <None Include="Resources\barcode.png" />

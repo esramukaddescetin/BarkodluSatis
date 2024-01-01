@@ -92,6 +92,7 @@
             // 
             this.BTNGiris.BackColor = System.Drawing.Color.Teal;
             this.BTNGiris.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
+            this.BTNGiris.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTNGiris.ForeColor = System.Drawing.Color.White;
             this.BTNGiris.Location = new System.Drawing.Point(388, 90);
             this.BTNGiris.Name = "BTNGiris";
